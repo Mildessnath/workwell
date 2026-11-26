@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Monitoring — WorkWell Radial Orbit</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#F6F3FF', ink: '#1E1633', muted: '#62587D', electric: '#6C3CE9',
+            lilac: '#D8CCFF', 'lilac-soft': '#ECE6FF', butter: '#FFE066', 'butter-ink': '#7A4E00',
+            coral: '#FF7B93', 'coral-soft': '#FFD6DE', 'coral-ink': '#941736',
+            mint: '#8EF0C4', 'mint-soft': '#D5FBE9', 'mint-ink': '#0B5D3B',
+            sky: '#99DDFF', 'sky-soft': '#DCF4FF', 'sky-ink': '#0A557A'
+          },
+          fontFamily: { display: ['Fredoka', 'system-ui', 'sans-serif'], sans: ['Nunito', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; overflow: hidden; white-space: nowrap; vertical-align: middle; }
+    @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes haloPulse { 0%, 100% { transform: scale(1); opacity: 0.75; } 50% { transform: scale(1.08); opacity: 1; } }
+    @keyframes eqBar { 0%, 100% { transform: scaleY(0.4); } 50% { transform: scaleY(1); } }
+    .ring-spin { animation: spinSlow 42s linear infinite; }
+    .halo-pulse { animation: haloPulse 2.6s ease-in-out infinite; }
+    .eq-1 { animation: eqBar 1.0s ease-in-out infinite; transform-origin: bottom; }
+    .eq-2 { animation: eqBar 0.8s ease-in-out 0.2s infinite; transform-origin: bottom; }
+    .eq-3 { animation: eqBar 1.2s ease-in-out 0.4s infinite; transform-origin: bottom; }
+  </style>
+</head>
+<body class="bg-canvas text-ink font-sans antialiased overflow-x-hidden">
+  <div class="min-h-[1024px] flex" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Left Navigation Rail -->
+    <aside class="w-56 shrink-0 sticky top-0 h-[1024px] bg-white/80 backdrop-blur border-r-2 border-lilac/60 px-6 py-7 flex flex-col justify-between z-20" data-stitch-vh="h-[1024px]===h-screen">
+      <div class="flex flex-col gap-9">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-electric p-0.5 shrink-0">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng" alt="Peekaboo" class="w-full h-full rounded-full object-contain bg-white p-0.5">
+          </div>
+          <div>
+            <span class="font-display text-xl text-ink block leading-none">WorkWell</span>
+            <span class="text-[11px] font-bold text-electric block mt-0.5">Radial Universe</span>
+          </div>
+        </div>
+        <nav aria-label="Primary" class="flex flex-col gap-2">
+          <a href="../orbit-bold-desktop/OrbitBoldDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">home</span> Home Orbit
+          </a>
+          <a href="#" aria-current="page" class="flex items-center gap-3 px-4 py-2.5 rounded-full bg-electric text-white font-bold text-sm shadow-sm">
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings:&#39;FILL&#39; 1;">sensors</span> Live Stream
+          </a>
+          <a href="../orbit-playtime-desktop/OrbitPlaytimeDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">stadia_controller</span> Playtime
+          </a>
+          <a href="../orbit-history-desktop/OrbitHistoryDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">insights</span> History
+          </a>
+          <a href="../orbit-settings-desktop/OrbitSettingsDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">tune</span> Settings
+          </a>
+        </nav>
+      </div>
+
+      <div class="rounded-3xl bg-mint-soft border-2 border-mint px-3.5 py-2.5 flex items-center gap-2.5">
+        <span id="led-dot" class="w-3 h-3 rounded-full bg-mint-ink animate-pulse shrink-0"></span>
+        <span id="led-label" class="font-mono text-xs font-semibold text-mint-ink">ESP32 · Calm LED</span>
+      </div>
+    </aside>
+
+    <!-- Main Live Monitoring Canvas -->
+    <main class="flex-1 min-w-0 px-10 py-7 max-w-[1200px] mx-auto flex flex-col gap-6">
+
+      <!-- Header -->
+      <header class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-3">
+            <h1 class="font-display text-3xl text-ink tracking-tight">Live Orbital Telemetry</h1>
+            <span class="rounded-full bg-butter text-butter-ink px-3 py-0.5 font-mono text-xs font-bold">Demo · Simulated</span>
+          </div>
+          <p class="text-sm text-muted font-semibold mt-0.5">Animated satellites pulse as readings update against your saved comfort thresholds</p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <div class="inline-flex items-center gap-1 bg-white border-2 border-lilac p-1 rounded-full">
+            <button type="button" onclick="setEnvState(&#39;normal&#39;)" id="st-normal" class="rounded-full px-3 py-1 bg-electric text-white text-[11px] font-bold">Normal</button>
+            <button type="button" onclick="setEnvState(&#39;warning&#39;)" id="st-warning" class="rounded-full px-3 py-1 text-muted text-[11px] font-bold">Warning</button>
+            <button type="button" onclick="setEnvState(&#39;critical&#39;)" id="st-critical" class="rounded-full px-3 py-1 text-muted text-[11px] font-bold">Critical</button>
+            <button type="button" onclick="setEnvState(&#39;offline&#39;)" id="st-offline" class="rounded-full px-3 py-1 text-muted text-[11px] font-bold">Offline</button>
+            <button type="button" onclick="setEnvState(&#39;nodata&#39;)" id="st-nodata" class="rounded-full px-3 py-1 text-muted text-[11px] font-bold">No Data</button>
+          </div>
+          <button type="button" onclick="sampleNow()" class="inline-flex items-center gap-1.5 rounded-full bg-white border-2 border-lilac text-electric px-3.5 py-2 text-xs font-bold hover:bg-lilac-soft transition-colors">
+            <span class="material-symbols-outlined text-base">refresh</span> Sample
+          </button>
+          <button type="button" onclick="blinkLed()" class="inline-flex items-center gap-1.5 rounded-full bg-electric text-white px-3.5 py-2 text-xs font-bold shadow-sm">
+            <span class="material-symbols-outlined text-base">lightbulb</span> <span>Blink LED</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Active Alert Banner -->
+      <section id="alert-banner" class="hidden rounded-full bg-coral-soft border-2 border-coral px-5 py-3 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-coral-ink text-xl">warning</span>
+          <span id="alert-text" class="text-sm font-extrabold text-coral-ink">Threshold alert active.</span>
+        </div>
+        <span class="rounded-full bg-white text-coral-ink px-3 py-0.5 font-mono text-xs font-bold">RGB LED · Amber Pulse</span>
+      </section>
+
+      <!-- Split Stage: Left Live Orbit Ring | Right Interactive Wave & Sensor Stream -->
+      <div class="grid grid-cols-12 gap-8 items-center flex-1">
+
+        <!-- Left (6 cols): Live Animated Orbit -->
+        <section class="col-span-6 relative flex items-center justify-center min-h-[520px]">
+          <div class="absolute w-[440px] h-[440px] rounded-full bg-lilac-soft/90 pointer-events-none"></div>
+
+          <div class="relative w-[420px] h-[420px] flex items-center justify-center">
+            <svg viewBox="0 0 420 420" class="absolute inset-0 w-full h-full pointer-events-none">
+              <circle cx="210" cy="210" r="198" fill="none" stroke="#6C3CE9" stroke-width="2" stroke-dasharray="7 9" opacity="0.28" class="origin-center ring-spin"></circle>
+              <circle cx="210" cy="210" r="146" fill="none" stroke="#B79EFF" stroke-width="2.5" opacity="0.55"></circle>
+              <line id="live-beam" x1="210" y1="210" x2="210" y2="32" stroke="#6C3CE9" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.85"></line>
+              <circle id="live-anchor" cx="210" cy="32" r="6" fill="#6C3CE9"></circle>
+            </svg>
+
+            <!-- Central Peekaboo Reaction Core -->
+            <div class="relative w-48 h-48 rounded-full bg-white border-4 border-electric/20 flex flex-col items-center justify-center text-center p-4 z-10 shadow-[0_18px_40px_rgba(108,60,233,0.16)]">
+              <span id="core-halo" class="absolute -inset-2 rounded-full bg-mint-soft/70 halo-pulse -z-10"></span>
+              <img id="live-mascot" src="https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng" alt="Peekaboo" class="w-24 h-24 rounded-full object-contain bg-white p-1 mb-1.5">
+              <span id="core-status" class="rounded-full bg-mint-soft text-mint-ink px-3 py-0.5 text-[11px] font-extrabold">Normal</span>
+            </div>
+
+            <!-- North: Temp -->
+            <button type="button" onclick="selectStream(&#39;temp&#39;)" id="lsat-temp" class="absolute -top-4 left-1/2 -translate-x-1/2 bg-butter border-[3px] border-electric rounded-[24px] px-4 py-2.5 flex items-center gap-2.5 z-20 shadow-lg scale-105 transition-transform">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrBWWUghiNXtMwwQrHednJEO_MqUWBWwyOIIhTSSKyxqzRqLAhcfDmS8wJAo5BS9KBQwXAMxs_XjPO1RfF4-PPnjcL5DMuf5hdugmnutRkKrqD_W0lr1AbB3VvT4MtuQp33kBsrF8bDDsR8zmhSNHZneC2AVFM3oJ2A3Jjz_4zKvZp5u1avyaf-FQDnMMkjimbtiB7WfnwJxYc_BsfVQ80kWJNW0ly40h8C6x7iBTL6LiNHVWtb2pkA" alt="Temp" class="w-9 h-9 rounded-xl object-cover bg-white">
+              <div class="text-left">
+                <span class="text-[10px] font-extrabold uppercase text-butter-ink block">Temp</span>
+                <span id="lval-temp" class="font-display text-lg font-bold text-ink tabular-nums">23.4°C</span>
+              </div>
+            </button>
+
+            <!-- East: Light -->
+            <button type="button" onclick="selectStream(&#39;light&#39;)" id="lsat-light" class="absolute top-1/2 -right-8 -translate-y-1/2 bg-sky border-[3px] border-white rounded-[22px] rounded-tr-sm px-4 py-2.5 flex items-center gap-2.5 z-20 shadow-lg transition-transform">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrBE_W9uuh1tDbE34Nu9CJ2Py_W5ARlmX1hu2FQs301eN7cTHyN7h8f3zmSRzV5fjtN0NISg7R_hbKERWs4n-6tQx7bfvvKOTG82aXMJAKwVsWvPjHMl9-V2SxpblCkPaAuVXmNTBLU2xyeDjtq6gLoIOjZCOxwFss4nPQvT-GGcr50v59v_Kp8aAyod3TnYLeyFZrUPakXYWhhNp98E-8KE4njARZoDRytYGgqYcrXKStHlh5TSuGAx" alt="Light" class="w-9 h-9 rounded-full object-cover bg-white">
+              <div class="text-left">
+                <span class="text-[10px] font-extrabold uppercase text-sky-ink block">Light</span>
+                <span id="lval-light" class="font-display text-lg font-bold text-ink tabular-nums">435 lx</span>
+              </div>
+            </button>
+
+            <!-- South: Humidity -->
+            <button type="button" onclick="selectStream(&#39;hum&#39;)" id="lsat-hum" class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-mint border-[3px] border-white rounded-full rounded-tl-md px-4 py-2.5 flex items-center gap-2.5 z-20 shadow-lg transition-transform">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrDct13ao3u4V3ZunI3-Z7FDlxlIOmIr8ESlah-7Wd6cdC44aEqb5ujcffPqVBHVhnTFs4u-UqWM8eK0WbymW6VLBFHrCiU1GbgHlZz7yHWhxdYKtV7hX5CBfeM5Iou3zs33jBIoed1a-_c9NDUE_1bfITfGr9gssgWsTgbTS7lVM6KytCEQUzzwXwhFo4jO-G4QChXUY4wb9j7kD5kgE9YxT0DDUe1nPSEfOQdYrXZNNy_GNTT0BJPCJmT4F9Qt-LU" alt="Humidity" class="w-9 h-9 rounded-full object-cover bg-white">
+              <div class="text-left">
+                <span class="text-[10px] font-extrabold uppercase text-mint-ink block">Humid</span>
+                <span id="lval-hum" class="font-display text-lg font-bold text-ink tabular-nums">48%</span>
+              </div>
+            </button>
+
+            <!-- West: Sound -->
+            <button type="button" onclick="selectStream(&#39;sound&#39;)" id="lsat-sound" class="absolute top-1/2 -left-10 -translate-y-1/2 bg-coral-soft border-[3px] border-white rounded-full px-4 py-2.5 flex items-center gap-2.5 z-20 shadow-lg transition-transform">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrCyBSkHZJ1WonMB5wWYgXLNq1FLG2aqmXeN5TGuK-QIPmYebfX7ZM3YmHWtXPmt1X7_kaEtsEA1G_XEDgqqS7otrOBRO4ulXfzbXfUUStAAdVsGe4IL2k07mvlIL1Y0e584IBsVsf5YSL48zJkQK6uB-F8u7CZF3ofSH9_8w7iuG7qc6ny1jFn2OK7l9QgX7LVuXAm9UA8hTedfWEmYiY7YvqPp0ouloLeSIq7GsgbIV1NqEU4Mu0UF90EiLIY" alt="Sound" class="w-9 h-9 rounded-full object-cover bg-white">
+              <div class="text-left">
+                <span class="text-[10px] font-extrabold uppercase text-coral-ink block">Sound</span>
+                <div class="flex items-center gap-1.5">
+                  <span id="lval-sound" class="font-display text-lg font-bold text-ink tabular-nums">42 dBA</span>
+                  <span class="inline-flex items-end gap-0.5 h-3.5">
+                    <span class="w-0.5 h-2 bg-coral rounded-full eq-1"></span>
+                    <span class="w-0.5 h-3.5 bg-coral rounded-full eq-2"></span>
+                    <span class="w-0.5 h-2.5 bg-coral rounded-full eq-3"></span>
+                  </span>
+                </div>
+              </div>
+            </button>
+          </div>
+        </section>
+
+        <!-- Right (6 cols): Interactive Live Wave & Peekaboo Commentary -->
+        <section class="col-span-6 flex flex-col gap-5">
+          <div class="rounded-[36px] bg-white border-2 border-lilac p-6 flex flex-col gap-4 shadow-[0_14px_34px_rgba(108,60,233,0.08)]">
+            <div class="flex items-center justify-between">
+              <div>
+                <span id="chart-title" class="font-display text-2xl text-ink block leading-tight">Temperature Stream</span>
+                <span id="chart-sub" class="text-xs font-bold text-muted">Threshold max: <span class="font-mono text-electric">26.5°C</span></span>
+              </div>
+              <span id="chart-now" class="rounded-full bg-butter text-butter-ink px-4 py-1.5 font-display text-xl font-bold tabular-nums">23.4°C</span>
+            </div>
+
+            <svg viewBox="0 0 480 180" class="w-full h-44 overflow-visible" aria-label="Live sensor waveform">
+              <defs>
+                <linearGradient id="liveWaveGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#6C3CE9" stop-opacity="0.30"></stop>
+                  <stop offset="100%" stop-color="#6C3CE9" stop-opacity="0.02"></stop>
+                </linearGradient>
+              </defs>
+              <line id="limit-line" x1="0" y1="40" x2="480" y2="40" stroke="#941736" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.55"></line>
+              <path id="wave-area" d fill="url(#liveWaveGrad)"></path>
+              <path id="wave-line" d fill="none" stroke="#6C3CE9" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <circle id="wave-dot" cx="465" cy="90" r="6.5" fill="#6C3CE9" stroke="#FFFFFF" stroke-width="2.5"></circle>
+            </svg>
+
+            <div class="flex items-center justify-between font-mono text-[11px] text-muted">
+              <span>-20s</span>
+              <span>-10s</span>
+              <span>Live Now</span>
+            </div>
+          </div>
+
+          <!-- Peekaboo Live Commentary Pill -->
+          <div class="rounded-[30px] bg-electric text-white p-5 flex items-center gap-4 shadow-[0_14px_30px_rgba(108,60,233,0.25)]">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAZMegn7O6aCJstm-NGjyFoFR56oPLOKNPp3G5YaSvVx8pSpAORcdg14GePlEKiZoXh724lyAQ87eDqA8HmwYksuTltpmGZn23qRQcCdonYmjzlUpoC_VlfStzS_EOJD5K8ZIBvEnkRPaPlFupyeu4Qqe46On0ROoj1WGyMk_ixWenL3tmifOz15tt8-9AvJH4jPzlMT33pyXrHdQtQfTrXoZ9hThiJMIYf7iTEKTnJ3piKTKxf2kZpYQ" alt="Peekaboo" class="w-12 h-12 rounded-full object-contain bg-white p-0.5 shrink-0">
+            <p id="live-speech" class="text-sm font-bold leading-snug">“All 4 orbiting sensors are steady inside your comfort band.”</p>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script data-stitch-original-script="bb85c4b54c8d6b6d===../../uploads/d8681424-c7b9-4070-94d5-6ea55b7b0d30-d4ef4a.png|||41d5a0d0a860c694===../../uploads/89fee179-c336-41f1-a9e0-8c8814fcaa37-aac8b5.png|||bb85c4b54c8d6b6d===../../uploads/d8681424-c7b9-4070-94d5-6ea55b7b0d30-d4ef4a.png|||61b3c1bf337dd8bb===../../uploads/65ea6de9-2ee9-47ac-bfd5-0a02930ff8c7-61db22.png|||aba8a6f893e6072d===../../uploads/a7c9af00-3c36-41bb-a7dc-c158ac9a9837-59a4f7.png">
+    const DEFAULT_CFG = { maxTemp: 26.5, maxHum: 60, minLux: 300, maxNoise: 58 };
+    function getCfg() {
+      try {
+        const raw = localStorage.getItem('workwell_settings_v1');
+        return raw ? { ...DEFAULT_CFG, ...JSON.parse(raw) } : DEFAULT_CFG;
+      } catch { return DEFAULT_CFG; }
+    }
+
+    let activeKey = 'temp';
+    let envMode = 'normal';
+    const series = {
+      temp:  [23.1, 23.2, 23.3, 23.2, 23.4, 23.5, 23.3, 23.4],
+      light: [420, 428, 430, 440, 432, 438, 434, 435],
+      hum:   [47, 48, 48, 49, 48, 47, 48, 48],
+      sound: [40, 41, 43, 42, 44, 41, 42, 42]
+    };
+
+    const META = {
+      temp:  { label: 'Temperature Stream', unit: '°C', min: 18, max: 32, color: '#D97706', chipCls: 'bg-butter text-butter-ink', limitKey: 'maxTemp', prefix: 'Threshold max: ', beam: [210, 32] },
+      light: { label: 'Ambient Light Stream', unit: ' lx', min: 100, max: 650, color: '#0284C7', chipCls: 'bg-sky text-sky-ink', limitKey: 'minLux', prefix: 'Threshold min: ', beam: [388, 210] },
+      hum:   { label: 'Humidity Stream', unit: '%', min: 30, max: 80, color: '#059669', chipCls: 'bg-mint text-mint-ink', limitKey: 'maxHum', prefix: 'Threshold max: ', beam: [210, 388] },
+      sound: { label: 'Acoustic Stream', unit: ' dBA', min: 30, max: 80, color: '#E11D48', chipCls: 'bg-coral-soft text-coral-ink', limitKey: 'maxNoise', prefix: 'Threshold max: ', beam: [32, 210] }
+    };
+
+    function setEnvState(mode) {
+      envMode = mode;
+      ['normal', 'warning', 'critical', 'offline', 'nodata'].forEach(k => {
+        document.getElementById('st-' + k).className = k === mode
+          ? 'rounded-full px-3 py-1 bg-electric text-white text-[11px] font-bold'
+          : 'rounded-full px-3 py-1 text-muted text-[11px] font-bold';
+      });
+      sampleNow();
+    }
+
+    function selectStream(key) {
+      activeKey = key;
+      ['temp', 'light', 'hum', 'sound'].forEach(k => {
+        const el = document.getElementById('lsat-' + k);
+        if (k === key) { el.classList.add('border-electric', 'scale-105'); el.classList.remove('border-white'); }
+        else { el.classList.remove('border-electric', 'scale-105'); el.classList.add('border-white'); }
+      });
+      render();
+    }
+
+    function sampleNow() {
+      const cfg = getCfg();
+      if (envMode === 'offline' || envMode === 'nodata') { render(); return; }
+      const next = {
+        temp:  envMode === 'critical' ? +(cfg.maxTemp + 2.1).toFixed(1) : envMode === 'warning' ? +(cfg.maxTemp - 0.3).toFixed(1) : +(23.0 + Math.random() * 1.1).toFixed(1),
+        light: envMode === 'critical' ? Math.max(150, cfg.minLux - 90) : envMode === 'warning' ? cfg.minLux + 15 : Math.round(415 + Math.random() * 45),
+        hum:   envMode === 'critical' ? Math.min(76, cfg.maxHum + 8) : Math.round(46 + Math.random() * 5),
+        sound: envMode === 'critical' ? Math.min(78, cfg.maxNoise + 10) : envMode === 'warning' ? cfg.maxNoise - 2 : Math.round(39 + Math.random() * 6)
+      };
+      Object.keys(next).forEach(k => { series[k].shift(); series[k].push(next[k]); });
+      render();
+    }
+
+    function blinkLed() {
+      const dot = document.getElementById('led-dot');
+      dot.classList.add('scale-150');
+      setTimeout(() => dot.classList.remove('scale-150'), 450);
+    }
+
+    function render() {
+      const cfg = getCfg();
+      const banner = document.getElementById('alert-banner');
+      const mascot = document.getElementById('live-mascot');
+      const halo = document.getElementById('core-halo');
+      const status = document.getElementById('core-status');
+      const speech = document.getElementById('live-speech');
+
+      if (envMode === 'offline') {
+        document.getElementById('lval-temp').textContent = '—';
+        document.getElementById('lval-light').textContent = '—';
+        document.getElementById('lval-hum').textContent = '—';
+        document.getElementById('lval-sound').textContent = '—';
+        banner.classList.remove('hidden');
+        document.getElementById('alert-text').textContent = 'ESP32 disconnected from HiveMQ Cloud MQTT broker.';
+        mascot.src = 'https://lh3.googleusercontent.com/aida/ALJJyrAnfDijCc4deybZQ-vcQCXWnFLlPnOzS5x0T_Bu9shHZErCddgpQjquR-mUPVOVcl7s0pzde-5VGApwdIMa8GGZBY0e-lRwa4SErnAIFB3L6jA0y4T7rj3yELgtmZtvGt2QU7lIVde75wDVNG2Fec76xG_LNjHWzP9fzhRxSDiwCXc1VlTnuCbLTBejq7Vz2W-wdKxzWSKHb6ewbthAk7YpC9r8zKxgg1KqNaIXKvz1jh4dIkhislFrlHc';
+        halo.className = 'absolute -inset-2 rounded-full bg-lilac-soft halo-pulse -z-10';
+        status.className = 'rounded-full bg-lilac-soft text-muted px-3 py-0.5 text-[11px] font-extrabold';
+        status.textContent = 'Offline · Curious';
+        speech.textContent = '“Waiting for ESP32 to reconnect to HiveMQ Cloud…”';
+        return;
+      }
+
+      if (envMode === 'nodata') {
+        document.getElementById('lval-temp').textContent = '…';
+        document.getElementById('lval-light').textContent = '…';
+        document.getElementById('lval-hum').textContent = '…';
+        document.getElementById('lval-sound').textContent = '…';
+        banner.classList.add('hidden');
+        mascot.src = 'https://lh3.googleusercontent.com/aida/ALJJyrDyLCP1yfR4ZI_Rn66YTqZxhvPOKUTdEeA--2ctBkQrzDsHlmx_a70d-_-rWBbe_Ll0MKKD5Ho80d702WrymtXbqJekk_2RAOo2njfizyXbfxKF2Cw_A_NNVlrnBNJWdGS1HMd-6HYUwuF037TX_3slrrFH4a7ueF3oqNZjvvYfaPeAx4AyoLptSOVEKdB10WMnhazcUZk3x8dVGAJga7cr2Y3nc-zAGiHSt4AaZ1jFTkeEmyBbwhpMDy0';
+        halo.className = 'absolute -inset-2 rounded-full bg-sky-soft halo-pulse -z-10';
+        status.className = 'rounded-full bg-sky-soft text-sky-ink px-3 py-0.5 text-[11px] font-extrabold';
+        status.textContent = 'Neutral · No Data';
+        speech.textContent = '“Subscribed to sensor topic — waiting for the first packet.”';
+        return;
+      }
+
+      const cur = {
+        temp: series.temp[series.temp.length - 1],
+        light: series.light[series.light.length - 1],
+        hum: series.hum[series.hum.length - 1],
+        sound: series.sound[series.sound.length - 1]
+      };
+
+      document.getElementById('lval-temp').textContent = cur.temp.toFixed(1) + '°C';
+      document.getElementById('lval-light').textContent = cur.light + ' lx';
+      document.getElementById('lval-hum').textContent = cur.hum + '%';
+      document.getElementById('lval-sound').textContent = cur.sound + ' dBA';
+
+      const alerts = [];
+      if (cur.temp > cfg.maxTemp) alerts.push(`Temperature ${cur.temp.toFixed(1)}°C exceeded ${cfg.maxTemp}°C`);
+      if (cur.sound > cfg.maxNoise) alerts.push(`Acoustics ${cur.sound} dBA exceeded ${cfg.maxNoise} dBA`);
+      if (cur.light < cfg.minLux) alerts.push(`Light ${cur.light} lx dropped below ${cfg.minLux} lx`);
+      if (cur.hum > cfg.maxHum) alerts.push(`Humidity ${cur.hum}% exceeded ${cfg.maxHum}%`);
+
+      if (envMode === 'critical' || alerts.length > 0) {
+        banner.classList.remove('hidden');
+        document.getElementById('alert-text').textContent = alerts[0] || 'Critical threshold exceeded.';
+        mascot.src = 'https://lh3.googleusercontent.com/aida/ALJJyrAnfDijCc4deybZQ-vcQCXWnFLlPnOzS5x0T_Bu9shHZErCddgpQjquR-mUPVOVcl7s0pzde-5VGApwdIMa8GGZBY0e-lRwa4SErnAIFB3L6jA0y4T7rj3yELgtmZtvGt2QU7lIVde75wDVNG2Fec76xG_LNjHWzP9fzhRxSDiwCXc1VlTnuCbLTBejq7Vz2W-wdKxzWSKHb6ewbthAk7YpC9r8zKxgg1KqNaIXKvz1jh4dIkhislFrlHc';
+        halo.className = 'absolute -inset-2 rounded-full bg-coral-soft halo-pulse -z-10';
+        status.className = 'rounded-full bg-coral-soft text-coral-ink px-3 py-0.5 text-[11px] font-extrabold';
+        status.textContent = 'Critical · Curious';
+        speech.textContent = '“Threshold crossed! Peekaboo highlighted the drifting satellite so you can adjust.”';
+      } else if (envMode === 'warning') {
+        banner.classList.remove('hidden');
+        document.getElementById('alert-text').textContent = 'Approaching comfort boundary — gentle drift detected.';
+        mascot.src = 'https://lh3.googleusercontent.com/aida/ALJJyrAZMegn7O6aCJstm-NGjyFoFR56oPLOKNPp3G5YaSvVx8pSpAORcdg14GePlEKiZoXh724lyAQ87eDqA8HmwYksuTltpmGZn23qRQcCdonYmjzlUpoC_VlfStzS_EOJD5K8ZIBvEnkRPaPlFupyeu4Qqe46On0ROoj1WGyMk_ixWenL3tmifOz15tt8-9AvJH4jPzlMT33pyXrHdQtQfTrXoZ9hThiJMIYf7iTEKTnJ3piKTKxf2kZpYQ';
+        halo.className = 'absolute -inset-2 rounded-full bg-butter halo-pulse -z-10';
+        status.className = 'rounded-full bg-butter text-butter-ink px-3 py-0.5 text-[11px] font-extrabold';
+        status.textContent = 'Warning · Encourage';
+        speech.textContent = '“Getting close to your comfort limit — might be a good moment to ventilate.”';
+      } else {
+        banner.classList.add('hidden');
+        mascot.src = 'https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng';
+        halo.className = 'absolute -inset-2 rounded-full bg-mint-soft/70 halo-pulse -z-10';
+        status.className = 'rounded-full bg-mint-soft text-mint-ink px-3 py-0.5 text-[11px] font-extrabold';
+        status.textContent = 'Normal · Happy';
+        speech.textContent = '“All 4 orbiting sensors are steady inside your comfort band.”';
+      }
+
+      const m = META[activeKey];
+      const vals = series[activeKey];
+      const limitVal = cfg[m.limitKey];
+
+      document.getElementById('chart-title').textContent = m.label;
+      document.getElementById('chart-sub').innerHTML = `${m.prefix}<span class="font-mono text-electric">${limitVal}${m.unit}</span>`;
+      const nowEl = document.getElementById('chart-now');
+      nowEl.textContent = (activeKey === 'temp' ? cur[activeKey].toFixed(1) : cur[activeKey]) + m.unit;
+      nowEl.className = `rounded-full px-4 py-1.5 font-display text-xl font-bold tabular-nums ${m.chipCls}`;
+
+      document.getElementById('live-beam').setAttribute('x2', m.beam[0]);
+      document.getElementById('live-beam').setAttribute('y2', m.beam[1]);
+      document.getElementById('live-anchor').setAttribute('cx', m.beam[0]);
+      document.getElementById('live-anchor').setAttribute('cy', m.beam[1]);
+
+      const W = 480, H = 165, padY = 16;
+      const toY = v => Math.max(padY, Math.min(H - padY, H - padY - ((v - m.min) / (m.max - m.min)) * (H - padY * 2)));
+      const pts = vals.map((v, i) => [Math.round((i / (vals.length - 1)) * (W - 24) + 12), Math.round(toY(v))]);
+      let d = `M ${pts[0][0]} ${pts[0][1]}`;
+      for (let i = 1; i < pts.length; i++) {
+        const cx = (pts[i - 1][0] + pts[i][0]) / 2;
+        d += ` C ${cx} ${pts[i - 1][1]}, ${cx} ${pts[i][1]}, ${pts[i][0]} ${pts[i][1]}`;
+      }
+      document.getElementById('wave-line').setAttribute('d', d);
+      document.getElementById('wave-line').setAttribute('stroke', m.color);
+      document.getElementById('wave-area').setAttribute('d', `${d} L ${pts[pts.length - 1][0]} ${H} L ${pts[0][0]} ${H} Z`);
+      const last = pts[pts.length - 1];
+      const dot = document.getElementById('wave-dot');
+      dot.setAttribute('cx', last[0]);
+      dot.setAttribute('cy', last[1]);
+      dot.setAttribute('fill', m.color);
+      const ly = Math.round(toY(limitVal));
+      document.getElementById('limit-line').setAttribute('y1', ly);
+      document.getElementById('limit-line').setAttribute('y2', ly);
+    }
+
+    render();
+    setInterval(sampleNow, 2500);
+  </script>
+
+
+</body></html>

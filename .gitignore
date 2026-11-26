@@ -1,0 +1,12 @@
+# secrets
+.env
+.env.*
+!.env.example
+secrets.h
+
+# deps / build
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.pyc

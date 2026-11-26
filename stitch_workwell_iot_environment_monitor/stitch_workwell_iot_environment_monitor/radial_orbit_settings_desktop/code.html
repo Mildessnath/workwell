@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — WorkWell Radial Orbit</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#F6F3FF', ink: '#1E1633', muted: '#62587D', electric: '#6C3CE9',
+            lilac: '#D8CCFF', 'lilac-soft': '#ECE6FF', butter: '#FFE066', 'butter-ink': '#7A4E00',
+            coral: '#FF7B93', 'coral-soft': '#FFD6DE', 'coral-ink': '#941736',
+            mint: '#8EF0C4', 'mint-soft': '#D5FBE9', 'mint-ink': '#0B5D3B',
+            sky: '#99DDFF', 'sky-soft': '#DCF4FF', 'sky-ink': '#0A557A'
+          },
+          fontFamily: { display: ['Fredoka', 'system-ui', 'sans-serif'], sans: ['Nunito', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; overflow: hidden; white-space: nowrap; vertical-align: middle; }
+    input[type="range"] { accent-color: #6C3CE9; }
+  </style>
+</head>
+<body class="bg-canvas text-ink font-sans antialiased overflow-x-hidden">
+  <div class="min-h-[1024px] flex" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Left Navigation Rail -->
+    <aside class="w-56 shrink-0 sticky top-0 h-[1024px] bg-white/80 backdrop-blur border-r-2 border-lilac/60 px-6 py-7 flex flex-col justify-between z-20" data-stitch-vh="h-[1024px]===h-screen">
+      <div class="flex flex-col gap-9">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-electric p-0.5 shrink-0">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng" alt="Peekaboo" class="w-full h-full rounded-full object-contain bg-white p-0.5">
+          </div>
+          <div>
+            <span class="font-display text-xl text-ink block leading-none">WorkWell</span>
+            <span class="text-[11px] font-bold text-electric block mt-0.5">Radial Universe</span>
+          </div>
+        </div>
+        <nav aria-label="Primary" class="flex flex-col gap-2">
+          <a href="../orbit-bold-desktop/OrbitBoldDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">home</span> Home Orbit
+          </a>
+          <a href="../orbit-live-desktop/OrbitLiveDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">sensors</span> Live Stream
+          </a>
+          <a href="../orbit-playtime-desktop/OrbitPlaytimeDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">stadia_controller</span> Playtime
+          </a>
+          <a href="../orbit-history-desktop/OrbitHistoryDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">insights</span> History
+          </a>
+          <a href="#" aria-current="page" class="flex items-center gap-3 px-4 py-2.5 rounded-full bg-electric text-white font-bold text-sm shadow-sm">
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings:&#39;FILL&#39; 1;">tune</span> Settings
+          </a>
+        </nav>
+      </div>
+
+      <div class="rounded-3xl bg-mint-soft border-2 border-mint px-3.5 py-2.5 flex items-center gap-2.5">
+        <span class="w-3 h-3 rounded-full bg-mint-ink animate-pulse shrink-0"></span>
+        <span class="font-mono text-xs font-semibold text-mint-ink">ESP32 · Online</span>
+      </div>
+    </aside>
+
+    <!-- Main Functional & Bold Settings -->
+    <main class="flex-1 min-w-0 px-10 py-7 max-w-[1160px] mx-auto flex flex-col gap-7">
+
+      <header class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 class="font-display text-3xl text-ink tracking-tight">Orbit Tuning &amp; Device</h1>
+          <p class="text-sm text-muted font-semibold mt-0.5">Configure comfort thresholds, notifications, and your ESP32 hardware companion</p>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <span id="save-toast" class="rounded-full bg-mint-soft text-mint-ink px-3.5 py-1.5 font-mono text-xs font-bold">Synced with Live Orbit</span>
+          <button type="button" onclick="resetCfg()" class="rounded-full bg-white border-2 border-lilac text-electric px-4 py-1.5 text-xs font-bold hover:bg-lilac-soft transition-colors">Reset Defaults</button>
+        </div>
+      </header>
+
+      <!-- Peekaboo Guide Banner -->
+      <section class="rounded-[34px] bg-electric text-white p-5 flex items-center justify-between gap-4 shadow-[0_14px_30px_rgba(108,60,233,0.22)]">
+        <div class="flex items-center gap-4">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrAZMegn7O6aCJstm-NGjyFoFR56oPLOKNPp3G5YaSvVx8pSpAORcdg14GePlEKiZoXh724lyAQ87eDqA8HmwYksuTltpmGZn23qRQcCdonYmjzlUpoC_VlfStzS_EOJD5K8ZIBvEnkRPaPlFupyeu4Qqe46On0ROoj1WGyMk_ixWenL3tmifOz15tt8-9AvJH4jPzlMT33pyXrHdQtQfTrXoZ9hThiJMIYf7iTEKTnJ3piKTKxf2kZpYQ" alt="Peekaboo" class="w-14 h-14 rounded-full object-contain bg-white p-0.5 shrink-0">
+          <div>
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-butter block">Comfort Band Sync</span>
+            <p class="text-sm font-bold">Thresholds saved here immediately update Peekaboo’s alerts in Live Stream.</p>
+          </div>
+        </div>
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrDknCwHzNw_lV2RxQVv3zaYtTEdKR5skrgJ4RPJkg2aMDin0nqEqfkqgU0x2K-KFS0meQW4Dow9N-J_5_fzAthz4YiX0zIkz56XT_uiLS96wuQ0CBDHLIYvJTiZVIBaQz0img2kRy3cIlc8qq1X0wILtIWWOD3EA_kVUrCAf6UVXOaJ9SVjJd17ljad4PlA_7IQDfL7sNYq8Fu26OUhkf3MkJID-KNUSg8eyJVyBvtPyBaroMtDLYFzw89mRA" alt="Settings Gear" class="w-12 h-12 rounded-full object-cover bg-white p-0.5 shrink-0">
+      </section>
+
+      <div class="grid grid-cols-12 gap-7 items-start">
+
+        <!-- Left (7 cols): 4 Expressive Pastel Threshold Controls -->
+        <section class="col-span-7 flex flex-col gap-4">
+          <div class="rounded-[30px] bg-butter/85 border-2 border-white p-5 flex flex-col gap-2.5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrBWWUghiNXtMwwQrHednJEO_MqUWBWwyOIIhTSSKyxqzRqLAhcfDmS8wJAo5BS9KBQwXAMxs_XjPO1RfF4-PPnjcL5DMuf5hdugmnutRkKrqD_W0lr1AbB3VvT4MtuQp33kBsrF8bDDsR8zmhSNHZneC2AVFM3oJ2A3Jjz_4zKvZp5u1avyaf-FQDnMMkjimbtiB7WfnwJxYc_BsfVQ80kWJNW0ly40h8C6x7iBTL6LiNHVWtb2pkA" alt="Temp" class="w-10 h-10 rounded-xl object-cover bg-white">
+                <div><span class="font-display text-base text-ink block">Max Temperature</span><span class="text-xs font-bold text-butter-ink">DHT22 · GPIO4</span></div>
+              </div>
+              <span id="val-temp" class="font-display text-2xl font-bold text-ink tabular-nums">26.5°C</span>
+            </div>
+            <input id="rng-temp" type="range" min="22" max="30" step="0.5" value="26.5" oninput="saveCfg()" class="w-full cursor-pointer">
+          </div>
+
+          <div class="rounded-[30px] bg-sky/80 border-2 border-white p-5 flex flex-col gap-2.5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrBE_W9uuh1tDbE34Nu9CJ2Py_W5ARlmX1hu2FQs301eN7cTHyN7h8f3zmSRzV5fjtN0NISg7R_hbKERWs4n-6tQx7bfvvKOTG82aXMJAKwVsWvPjHMl9-V2SxpblCkPaAuVXmNTBLU2xyeDjtq6gLoIOjZCOxwFss4nPQvT-GGcr50v59v_Kp8aAyod3TnYLeyFZrUPakXYWhhNp98E-8KE4njARZoDRytYGgqYcrXKStHlh5TSuGAx" alt="Light" class="w-10 h-10 rounded-full object-cover bg-white">
+                <div><span class="font-display text-base text-ink block">Min Ambient Light</span><span class="text-xs font-bold text-sky-ink">BH1750 · I2C</span></div>
+              </div>
+              <span id="val-lux" class="font-display text-2xl font-bold text-ink tabular-nums">300 lx</span>
+            </div>
+            <input id="rng-lux" type="range" min="150" max="500" step="10" value="300" oninput="saveCfg()" class="w-full cursor-pointer">
+          </div>
+
+          <div class="rounded-[30px] bg-mint/80 border-2 border-white p-5 flex flex-col gap-2.5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrDct13ao3u4V3ZunI3-Z7FDlxlIOmIr8ESlah-7Wd6cdC44aEqb5ujcffPqVBHVhnTFs4u-UqWM8eK0WbymW6VLBFHrCiU1GbgHlZz7yHWhxdYKtV7hX5CBfeM5Iou3zs33jBIoed1a-_c9NDUE_1bfITfGr9gssgWsTgbTS7lVM6KytCEQUzzwXwhFo4jO-G4QChXUY4wb9j7kD5kgE9YxT0DDUe1nPSEfOQdYrXZNNy_GNTT0BJPCJmT4F9Qt-LU" alt="Humidity" class="w-10 h-10 rounded-full object-cover bg-white">
+                <div><span class="font-display text-base text-ink block">Max Humidity</span><span class="text-xs font-bold text-mint-ink">DHT22 · Relative %</span></div>
+              </div>
+              <span id="val-hum" class="font-display text-2xl font-bold text-ink tabular-nums">60%</span>
+            </div>
+            <input id="rng-hum" type="range" min="45" max="75" step="1" value="60" oninput="saveCfg()" class="w-full cursor-pointer">
+          </div>
+
+          <div class="rounded-[30px] bg-coral-soft border-2 border-white p-5 flex flex-col gap-2.5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrCyBSkHZJ1WonMB5wWYgXLNq1FLG2aqmXeN5TGuK-QIPmYebfX7ZM3YmHWtXPmt1X7_kaEtsEA1G_XEDgqqS7otrOBRO4ulXfzbXfUUStAAdVsGe4IL2k07mvlIL1Y0e584IBsVsf5YSL48zJkQK6uB-F8u7CZF3ofSH9_8w7iuG7qc6ny1jFn2OK7l9QgX7LVuXAm9UA8hTedfWEmYiY7YvqPp0ouloLeSIq7GsgbIV1NqEU4Mu0UF90EiLIY" alt="Noise" class="w-10 h-10 rounded-full object-cover bg-white">
+                <div><span class="font-display text-base text-ink block">Max Noise Level</span><span class="text-xs font-bold text-coral-ink">MAX4466 · Acoustic</span></div>
+              </div>
+              <span id="val-noise" class="font-display text-2xl font-bold text-ink tabular-nums">58 dBA</span>
+            </div>
+            <input id="rng-noise" type="range" min="45" max="75" step="1" value="58" oninput="saveCfg()" class="w-full cursor-pointer">
+          </div>
+        </section>
+
+        <!-- Right (5 cols): Notifications & Hardware Device -->
+        <section class="col-span-5 flex flex-col gap-5">
+          <div class="rounded-[34px] bg-white border-2 border-lilac p-6 flex flex-col gap-4 shadow-[0_14px_34px_rgba(108,60,233,0.08)]">
+            <h2 class="font-display text-xl text-ink">Alerts &amp; RGB LED</h2>
+            <label class="flex items-center justify-between gap-3 cursor-pointer py-1">
+              <div><span class="text-sm font-bold text-ink block">RGB LED Alert Pulse</span><span class="text-xs text-muted">Blink amber when comfort drifts</span></div>
+              <input type="checkbox" checked class="rounded-full text-electric focus:ring-electric h-5 w-5">
+            </label>
+            <label class="flex items-center justify-between gap-3 cursor-pointer py-1">
+              <div><span class="text-sm font-bold text-ink block">Gentle Sound Chime</span><span class="text-xs text-muted">Soft chime for prolonged alerts</span></div>
+              <input type="checkbox" class="rounded-full text-electric focus:ring-electric h-5 w-5">
+            </label>
+            <label class="flex items-center justify-between gap-3 cursor-pointer py-1">
+              <div><span class="text-sm font-bold text-ink block">Night Auto-Dim</span><span class="text-xs text-muted">Dim hardware LED after 20:00</span></div>
+              <input type="checkbox" checked class="rounded-full text-electric focus:ring-electric h-5 w-5">
+            </label>
+          </div>
+
+          <div class="rounded-[34px] bg-lilac-soft border-2 border-lilac p-6 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <h2 class="font-display text-xl text-ink">ESP32 Hardware</h2>
+              <span class="rounded-full bg-mint text-mint-ink px-3 py-0.5 text-xs font-extrabold">Connected</span>
+            </div>
+            <div class="font-mono text-xs text-muted flex flex-col gap-1.5">
+              <div class="flex justify-between"><span>Node</span><span class="text-ink font-semibold">WorkWell-ESP32-S3</span></div>
+              <div class="flex justify-between"><span>Firmware</span><span class="text-ink font-semibold">v2.4.1-orbit</span></div>
+              <div class="flex justify-between"><span>Sample Rate</span><span class="text-ink font-semibold">2.5s interval</span></div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const DEFAULT_CFG = { maxTemp: 26.5, maxHum: 60, minLux: 300, maxNoise: 58 };
+    function loadCfg() {
+      let cfg = DEFAULT_CFG;
+      try {
+        const raw = localStorage.getItem('workwell_settings_v1');
+        if (raw) cfg = { ...DEFAULT_CFG, ...JSON.parse(raw) };
+      } catch {}
+      document.getElementById('rng-temp').value = cfg.maxTemp;
+      document.getElementById('rng-lux').value = cfg.minLux;
+      document.getElementById('rng-hum').value = cfg.maxHum;
+      document.getElementById('rng-noise').value = cfg.maxNoise;
+      updateLabels(cfg);
+    }
+    function updateLabels(cfg) {
+      document.getElementById('val-temp').textContent = Number(cfg.maxTemp).toFixed(1) + '°C';
+      document.getElementById('val-lux').textContent = cfg.minLux + ' lx';
+      document.getElementById('val-hum').textContent = cfg.maxHum + '%';
+      document.getElementById('val-noise').textContent = cfg.maxNoise + ' dBA';
+    }
+    function saveCfg() {
+      const cfg = {
+        maxTemp: parseFloat(document.getElementById('rng-temp').value),
+        minLux: parseInt(document.getElementById('rng-lux').value, 10),
+        maxHum: parseInt(document.getElementById('rng-hum').value, 10),
+        maxNoise: parseInt(document.getElementById('rng-noise').value, 10)
+      };
+      updateLabels(cfg);
+      try { localStorage.setItem('workwell_settings_v1', JSON.stringify(cfg)); } catch {}
+      const t = document.getElementById('save-toast');
+      t.textContent = 'Saved ✓';
+      setTimeout(() => { t.textContent = 'Synced with Live Orbit'; }, 1200);
+    }
+    function resetCfg() {
+      try { localStorage.setItem('workwell_settings_v1', JSON.stringify(DEFAULT_CFG)); } catch {}
+      loadCfg();
+    }
+    loadCfg();
+  </script>
+
+
+</body></html>

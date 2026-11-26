@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkWell — Visual Asset &amp; Character Mapping Guide</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#F6F3FF',
+            ink: '#1E1633',
+            muted: '#62587D',
+            electric: '#6C3CE9',
+            lilac: '#D8CCFF',
+            'lilac-soft': '#ECE6FF',
+            butter: '#FFE066',
+            'butter-ink': '#7A4E00',
+            coral: '#FF7B93',
+            'coral-soft': '#FFD6DE',
+            'coral-ink': '#941736',
+            mint: '#8EF0C4',
+            'mint-soft': '#D5FBE9',
+            'mint-ink': '#0B5D3B',
+            sky: '#99DDFF',
+            'sky-soft': '#DCF4FF',
+            'sky-ink': '#0A557A',
+            orange: '#FFEDD5',
+            'orange-ink': '#9A3412'
+          },
+          fontFamily: {
+            display: ['Fredoka', 'system-ui', 'sans-serif'],
+            sans: ['Nunito', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; overflow: hidden; white-space: nowrap; vertical-align: middle; }
+  </style>
+</head>
+<body class="bg-canvas text-ink font-sans antialiased p-8">
+  <div class="max-w-[1136px] mx-auto flex flex-col gap-8">
+
+    <!-- Header -->
+    <header class="rounded-[36px] bg-white border-2 border-lilac p-7 flex flex-wrap items-center justify-between gap-6 shadow-[0_14px_34px_rgba(108,60,233,0.08)]">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 rounded-full bg-white border-4 border-electric/20 p-1 flex items-center justify-center shrink-0 shadow-sm">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng" alt="Peekaboo Happy" class="w-full h-full rounded-full object-contain bg-white">
+        </div>
+        <div>
+          <div class="flex items-center gap-2.5 flex-wrap">
+            <h1 class="font-display text-3xl text-ink leading-tight">WorkWell — Visual Asset &amp; Character Mapping Guide</h1>
+            <span class="rounded-full bg-electric text-white px-3 py-0.5 text-xs font-extrabold">Developer Handoff</span>
+          </div>
+          <p class="text-sm font-semibold text-muted mt-1">Central reference for official Peekaboo character expressions, environmental sensor icons, state triggers, and Radial Orbit layout specs.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="rounded-full bg-lilac-soft text-electric px-3.5 py-1.5 text-xs font-extrabold">Bold Playful Radial Orbit</span>
+        <span class="rounded-full bg-mint-soft text-mint-ink px-3.5 py-1.5 font-mono text-xs font-bold">v2.0 Official Assets</span>
+      </div>
+    </header>
+
+    <!-- 1. Official Peekaboo Character Assets -->
+    <section class="flex flex-col gap-4">
+      <div class="flex items-baseline justify-between">
+        <div>
+          <h2 class="font-display text-2xl text-ink">1. Official Peekaboo Character Assets</h2>
+          <p class="text-xs font-semibold text-muted">All six official 512×512 PNG expressions rendered inside white circular frames with <code class="font-mono text-electric">object-contain</code> to preserve original proportions.</p>
+        </div>
+        <span class="font-mono text-xs font-bold text-electric">uploads/*.png · 6 Expressions</span>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4">
+        <!-- Yellow: Happy -->
+        <article class="rounded-[28px] bg-white border-2 border-lilac p-5 flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center gap-4">
+            <div class="w-20 h-20 rounded-full bg-white border-4 border-butter p-1 shrink-0 flex items-center justify-center shadow-sm">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng" alt="Yellow — Happy" class="w-full h-full rounded-full object-contain bg-white">
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-butter text-butter-ink px-2.5 py-0.5 text-[11px] font-extrabold uppercase">Yellow</span>
+                <span class="font-display text-xl text-ink">Happy</span>
+              </div>
+              <p class="text-xs font-semibold text-muted mt-1 leading-snug">Normal conditions and welcoming interactions.</p>
+            </div>
+          </div>
+          <div class="rounded-xl bg-lilac-soft/70 px-3 py-2 font-mono text-[11px] text-ink break-all">
+            uploads/a7c9af00-3c36-41bb-a7dc-c158ac9a9837-59a4f7.png
+          </div>
+        </article>
+
+        <!-- Red: Celebrate -->
+        <article class="rounded-[28px] bg-white border-2 border-lilac p-5 flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center gap-4">
+            <div class="w-20 h-20 rounded-full bg-white border-4 border-coral p-1 shrink-0 flex items-center justify-center shadow-sm">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrCdOdKVyPWlLa0mLD9qDwaoBXzzmdsU_1LkhESSe62zNjRmBha41xVOdaBwLajdlKI_e-NWZDaAz1rWXzRd-npq6oBsR7ZjnYDjq4UBPeJgfpBGm3yBEsZ1lk-ao6NRqrYHNPbAWv0L7yS6Xmkt4C_39Im-E2w3OkN-r0Ebxa30LXCuDNANHN-eajBgLKTSx5pvmqK8t0UAXG7L4eV7GQ_bpIjdWPLslNbVnr7fnYFxlDlHRPzBaqDQ3qA" alt="Red — Celebrate" class="w-full h-full rounded-full object-contain bg-white">
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-coral-soft text-coral-ink px-2.5 py-0.5 text-[11px] font-extrabold uppercase">Red</span>
+                <span class="font-display text-xl text-ink">Celebrate</span>
+              </div>
+              <p class="text-xs font-semibold text-muted mt-1 leading-snug">Achievements, milestones, and completed activities.</p>
+            </div>
+          </div>
+          <div class="rounded-xl bg-lilac-soft/70 px-3 py-2 font-mono text-[11px] text-ink break-all">
+            uploads/c6130dfb-3f11-4ab7-aa1f-a4ebeeddc463-0ab66b.png
+          </div>
+        </article>
+
+        <!-- Purple: Sleepy -->
+        <article class="rounded-[28px] bg-white border-2 border-lilac p-5 flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center gap-4">
+            <div class="w-20 h-20 rounded-full bg-white border-4 border-lilac p-1 shrink-0 flex items-center justify-center shadow-sm">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrDgkfgzeI1melaNvhl8WpWGz3x7TE6EZuPnBNJLnk5aD3jaBuwbUptz1YKxhLHOdVvsSEM8CdSmJEflkUoVWK2C0_JVsRG6uvgtA8bf557P7zyYH6lK151PDBBo_WHpfFbzQdx5-O-t-qZOpsgKs5JYxfuYPsXXk2dzrhmwncngPNsFfxx_2Ze1xqJOXu7pLKBjXNUmhft1CVGGfpyjxb3mcksSGFa40NIPcsoKKGXGQ1UEJIHvZZQs8gg" alt="Purple — Sleepy" class="w-full h-full rounded-full object-contain bg-white">
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-lilac-soft text-electric px-2.5 py-0.5 text-[11px] font-extrabold uppercase">Purple</span>
+                <span class="font-display text-xl text-ink">Sleepy</span>
+              </div>
+              <p class="text-xs font-semibold text-muted mt-1 leading-snug">Relaxation and quiet moments.</p>
+            </div>
+          </div>
+          <div class="rounded-xl bg-lilac-soft/70 px-3 py-2 font-mono text-[11px] text-ink break-all">
+            uploads/79ed381d-52f4-40b9-a45b-8b6831f801b5-6c99de.png
+          </div>
+        </article>
+
+        <!-- Green: Curious -->
+        <article class="rounded-[28px] bg-white border-2 border-lilac p-5 flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center gap-4">
+            <div class="w-20 h-20 rounded-full bg-white border-4 border-mint p-1 shrink-0 flex items-center justify-center shadow-sm">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrAnfDijCc4deybZQ-vcQCXWnFLlPnOzS5x0T_Bu9shHZErCddgpQjquR-mUPVOVcl7s0pzde-5VGApwdIMa8GGZBY0e-lRwa4SErnAIFB3L6jA0y4T7rj3yELgtmZtvGt2QU7lIVde75wDVNG2Fec76xG_LNjHWzP9fzhRxSDiwCXc1VlTnuCbLTBejq7Vz2W-wdKxzWSKHb6ewbthAk7YpC9r8zKxgg1KqNaIXKvz1jh4dIkhislFrlHc" alt="Green — Curious" class="w-full h-full rounded-full object-contain bg-white">
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-mint-soft text-mint-ink px-2.5 py-0.5 text-[11px] font-extrabold uppercase">Green</span>
+                <span class="font-display text-xl text-ink">Curious</span>
+              </div>
+              <p class="text-xs font-semibold text-muted mt-1 leading-snug">Environmental changes and exploration.</p>
+            </div>
+          </div>
+          <div class="rounded-xl bg-lilac-soft/70 px-3 py-2 font-mono text-[11px] text-ink break-all">
+            uploads/d8681424-c7b9-4070-94d5-6ea55b7b0d30-d4ef4a.png
+          </div>
+        </article>
+
+        <!-- Orange: Encourage -->
+        <article class="rounded-[28px] bg-white border-2 border-lilac p-5 flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center gap-4">
+            <div class="w-20 h-20 rounded-full bg-white border-4 border-orange p-1 shrink-0 flex items-center justify-center shadow-sm">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrAZMegn7O6aCJstm-NGjyFoFR56oPLOKNPp3G5YaSvVx8pSpAORcdg14GePlEKiZoXh724lyAQ87eDqA8HmwYksuTltpmGZn23qRQcCdonYmjzlUpoC_VlfStzS_EOJD5K8ZIBvEnkRPaPlFupyeu4Qqe46On0ROoj1WGyMk_ixWenL3tmifOz15tt8-9AvJH4jPzlMT33pyXrHdQtQfTrXoZ9hThiJMIYf7iTEKTnJ3piKTKxf2kZpYQ" alt="Orange — Encourage" class="w-full h-full rounded-full object-contain bg-white">
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-orange text-orange-ink px-2.5 py-0.5 text-[11px] font-extrabold uppercase">Orange</span>
+                <span class="font-display text-xl text-ink">Encourage</span>
+              </div>
+              <p class="text-xs font-semibold text-muted mt-1 leading-snug">Gentle reminders and warnings.</p>
+            </div>
+          </div>
+          <div class="rounded-xl bg-lilac-soft/70 px-3 py-2 font-mono text-[11px] text-ink break-all">
+            uploads/65ea6de9-2ee9-47ac-bfd5-0a02930ff8c7-61db22.png
+          </div>
+        </article>
+
+        <!-- Blank: Neutral -->
+        <article class="rounded-[28px] bg-white border-2 border-lilac p-5 flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center gap-4">
+            <div class="w-20 h-20 rounded-full bg-white border-4 border-slate-200 p-1 shrink-0 flex items-center justify-center shadow-sm">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrDyLCP1yfR4ZI_Rn66YTqZxhvPOKUTdEeA--2ctBkQrzDsHlmx_a70d-_-rWBbe_Ll0MKKD5Ho80d702WrymtXbqJekk_2RAOo2njfizyXbfxKF2Cw_A_NNVlrnBNJWdGS1HMd-6HYUwuF037TX_3slrrFH4a7ueF3oqNZjvvYfaPeAx4AyoLptSOVEKdB10WMnhazcUZk3x8dVGAJga7cr2Y3nc-zAGiHSt4AaZ1jFTkeEmyBbwhpMDy0" alt="Blank — Neutral" class="w-full h-full rounded-full object-contain bg-white">
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-slate-100 text-slate-700 px-2.5 py-0.5 text-[11px] font-extrabold uppercase">Blank</span>
+                <span class="font-display text-xl text-ink">Neutral</span>
+              </div>
+              <p class="text-xs font-semibold text-muted mt-1 leading-snug">Default, idle, offline, and no-data states.</p>
+            </div>
+          </div>
+          <div class="rounded-xl bg-lilac-soft/70 px-3 py-2 font-mono text-[11px] text-ink break-all">
+            uploads/89fee179-c336-41f1-a9e0-8c8814fcaa37-aac8b5.png
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2. Environmental Sensor Icon Mapping -->
+    <section class="flex flex-col gap-4">
+      <div class="flex items-baseline justify-between">
+        <div>
+          <h2 class="font-display text-2xl text-ink">2. Environmental Sensor Icon Mapping</h2>
+          <p class="text-xs font-semibold text-muted">Official pastel sensor illustrations mapped to the four cardinal orbital satellites (North, South, East, West).</p>
+        </div>
+        <span class="font-mono text-xs font-bold text-electric">images/assets/*.jpg · 4 Sensors</span>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4">
+        <div class="rounded-[28px] bg-butter/85 border-2 border-white p-5 flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center gap-3">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrBWWUghiNXtMwwQrHednJEO_MqUWBWwyOIIhTSSKyxqzRqLAhcfDmS8wJAo5BS9KBQwXAMxs_XjPO1RfF4-PPnjcL5DMuf5hdugmnutRkKrqD_W0lr1AbB3VvT4MtuQp33kBsrF8bDDsR8zmhSNHZneC2AVFM3oJ2A3Jjz_4zKvZp5u1avyaf-FQDnMMkjimbtiB7WfnwJxYc_BsfVQ80kWJNW0ly40h8C6x7iBTL6LiNHVWtb2pkA" alt="Temperature" class="w-12 h-12 rounded-full object-cover bg-white border-2 border-white shadow-sm shrink-0">
+            <div>
+              <span class="font-display text-lg text-ink block leading-tight">Temperature</span>
+              <span class="text-[11px] font-extrabold text-butter-ink uppercase">North Satellite</span>
+            </div>
+          </div>
+          <div class="text-xs font-bold text-ink">Comfort Band: <span class="font-mono">21–26°C</span></div>
+          <div class="rounded-xl bg-white/80 px-2.5 py-1.5 font-mono text-[10px] text-ink">icon_sun_cloud.jpg · DHT22</div>
+        </div>
+
+        <div class="rounded-[28px] bg-mint/80 border-2 border-white p-5 flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center gap-3">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrDct13ao3u4V3ZunI3-Z7FDlxlIOmIr8ESlah-7Wd6cdC44aEqb5ujcffPqVBHVhnTFs4u-UqWM8eK0WbymW6VLBFHrCiU1GbgHlZz7yHWhxdYKtV7hX5CBfeM5Iou3zs33jBIoed1a-_c9NDUE_1bfITfGr9gssgWsTgbTS7lVM6KytCEQUzzwXwhFo4jO-G4QChXUY4wb9j7kD5kgE9YxT0DDUe1nPSEfOQdYrXZNNy_GNTT0BJPCJmT4F9Qt-LU" alt="Humidity" class="w-12 h-12 rounded-full object-cover bg-white border-2 border-white shadow-sm shrink-0">
+            <div>
+              <span class="font-display text-lg text-ink block leading-tight">Humidity</span>
+              <span class="text-[11px] font-extrabold text-mint-ink uppercase">South Satellite</span>
+            </div>
+          </div>
+          <div class="text-xs font-bold text-ink">Comfort Band: <span class="font-mono">40–60%</span></div>
+          <div class="rounded-xl bg-white/80 px-2.5 py-1.5 font-mono text-[10px] text-ink">char_humidity_umbrella.jpg · DHT22</div>
+        </div>
+
+        <div class="rounded-[28px] bg-sky/80 border-2 border-white p-5 flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center gap-3">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrBE_W9uuh1tDbE34Nu9CJ2Py_W5ARlmX1hu2FQs301eN7cTHyN7h8f3zmSRzV5fjtN0NISg7R_hbKERWs4n-6tQx7bfvvKOTG82aXMJAKwVsWvPjHMl9-V2SxpblCkPaAuVXmNTBLU2xyeDjtq6gLoIOjZCOxwFss4nPQvT-GGcr50v59v_Kp8aAyod3TnYLeyFZrUPakXYWhhNp98E-8KE4njARZoDRytYGgqYcrXKStHlh5TSuGAx" alt="Ambient Light" class="w-12 h-12 rounded-full object-cover bg-white border-2 border-white shadow-sm shrink-0">
+            <div>
+              <span class="font-display text-lg text-ink block leading-tight">Ambient Light</span>
+              <span class="text-[11px] font-extrabold text-sky-ink uppercase">East Satellite</span>
+            </div>
+          </div>
+          <div class="text-xs font-bold text-ink">Comfort Band: <span class="font-mono">300–550 lx</span></div>
+          <div class="rounded-xl bg-white/80 px-2.5 py-1.5 font-mono text-[10px] text-ink">icon_lightbulb.jpg · BH1750</div>
+        </div>
+
+        <div class="rounded-[28px] bg-coral-soft border-2 border-white p-5 flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center gap-3">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCyBSkHZJ1WonMB5wWYgXLNq1FLG2aqmXeN5TGuK-QIPmYebfX7ZM3YmHWtXPmt1X7_kaEtsEA1G_XEDgqqS7otrOBRO4ulXfzbXfUUStAAdVsGe4IL2k07mvlIL1Y0e584IBsVsf5YSL48zJkQK6uB-F8u7CZF3ofSH9_8w7iuG7qc6ny1jFn2OK7l9QgX7LVuXAm9UA8hTedfWEmYiY7YvqPp0ouloLeSIq7GsgbIV1NqEU4Mu0UF90EiLIY" alt="Noise Level" class="w-12 h-12 rounded-full object-cover bg-white border-2 border-white shadow-sm shrink-0">
+            <div>
+              <span class="font-display text-lg text-ink block leading-tight">Noise Level</span>
+              <span class="text-[11px] font-extrabold text-coral-ink uppercase">West Satellite</span>
+            </div>
+          </div>
+          <div class="text-xs font-bold text-ink">Comfort Band: <span class="font-mono">≤ 55 dBA</span></div>
+          <div class="rounded-xl bg-white/80 px-2.5 py-1.5 font-mono text-[10px] text-ink">icon_mic_headphones.jpg · MAX4466</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Character State Mapping Table -->
+    <section class="rounded-[34px] bg-white border-2 border-lilac p-6 flex flex-col gap-4 shadow-[0_10px_28px_rgba(108,60,233,0.06)]">
+      <div class="flex items-baseline justify-between">
+        <div>
+          <h2 class="font-display text-2xl text-ink">3. Character State Mapping</h2>
+          <p class="text-xs font-semibold text-muted">Deterministic mapping from environmental telemetry and user interactions to Peekaboo expressions.</p>
+        </div>
+        <span class="rounded-full bg-lilac-soft text-electric px-3 py-1 text-xs font-extrabold">8 Core States</span>
+      </div>
+
+      <div class="overflow-hidden rounded-2xl border border-lilac/80">
+        <table class="w-full text-left border-collapse">
+          <thead class="bg-lilac-soft/75 text-[11px] font-extrabold uppercase tracking-wider text-electric">
+            <tr>
+              <th class="py-3 px-4">Application Event</th>
+              <th class="py-3 px-4">Peekaboo Expression</th>
+              <th class="py-3 px-4">Color Asset</th>
+              <th class="py-3 px-4">UI Indicator &amp; Visual Treatment</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-lilac/50 text-xs font-semibold text-ink">
+            <tr>
+              <td class="py-3 px-4 font-bold">Normal environmental condition</td>
+              <td class="py-3 px-4"><span class="rounded-full bg-butter text-butter-ink px-2.5 py-0.5 font-extrabold">Happy</span></td>
+              <td class="py-3 px-4">Yellow</td>
+              <td class="py-3 px-4 text-muted">Mint-soft halo, calm electric progress arc, “All Clear” badge.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold">Environmental changes</td>
+              <td class="py-3 px-4"><span class="rounded-full bg-mint-soft text-mint-ink px-2.5 py-0.5 font-extrabold">Curious</span></td>
+              <td class="py-3 px-4">Green</td>
+              <td class="py-3 px-4 text-muted">Observant state when readings shift or user inspects a satellite.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold">Warning condition</td>
+              <td class="py-3 px-4"><span class="rounded-full bg-orange text-orange-ink px-2.5 py-0.5 font-extrabold">Encourage</span></td>
+              <td class="py-3 px-4">Orange</td>
+              <td class="py-3 px-4 text-muted">Warm supportive reminder banner and tip pill adjustment.</td>
+            </tr>
+            <tr class="bg-coral-soft/25">
+              <td class="py-3 px-4 font-bold">Critical condition</td>
+              <td class="py-3 px-4"><span class="rounded-full bg-orange text-orange-ink px-2.5 py-0.5 font-extrabold">Encourage</span></td>
+              <td class="py-3 px-4">Orange + Alert</td>
+              <td class="py-3 px-4 text-coral-ink font-bold">Distinct critical alert indicator: pulsing coral-soft halo, coral alert banner, and “Alert” pill.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold">Offline</td>
+              <td class="py-3 px-4"><span class="rounded-full bg-slate-100 text-slate-700 px-2.5 py-0.5 font-extrabold">Neutral</span></td>
+              <td class="py-3 px-4">Blank</td>
+              <td class="py-3 px-4 text-muted">Muted orbital ring with “ESP32 Offline” status pill.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold">No Data</td>
+              <td class="py-3 px-4"><span class="rounded-full bg-slate-100 text-slate-700 px-2.5 py-0.5 font-extrabold">Neutral</span></td>
+              <td class="py-3 px-4">Blank</td>
+              <td class="py-3 px-4 text-muted">Placeholder dash (<code class="font-mono">--</code>) values while awaiting first sample.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold">Mini-game achievement</td>
+              <td class="py-3 px-4"><span class="rounded-full bg-coral-soft text-coral-ink px-2.5 py-0.5 font-extrabold">Celebrate</span></td>
+              <td class="py-3 px-4">Red</td>
+              <td class="py-3 px-4 text-muted">Used for level-ups, snack rewards, and Comfort Story peak insights.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold">Relaxation experience</td>
+              <td class="py-3 px-4"><span class="rounded-full bg-lilac-soft text-electric px-2.5 py-0.5 font-extrabold">Sleepy</span></td>
+              <td class="py-3 px-4">Purple</td>
+              <td class="py-3 px-4 text-muted">Used for rest prompts, dim lighting, and calm wind-down moments.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. Visual Guidelines -->
+    <section class="grid grid-cols-2 gap-5">
+      <div class="rounded-[32px] bg-white border-2 border-lilac p-6 flex flex-col gap-3 shadow-sm">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-electric text-xl">crop_free</span>
+          <h2 class="font-display text-xl text-ink">Frame Treatment &amp; Sizing</h2>
+        </div>
+        <ul class="text-xs font-semibold text-ink space-y-2.5">
+          <li class="flex gap-2"><span class="text-electric font-extrabold">•</span><span><strong>White Circular Frame:</strong> Always wrap Peekaboo PNGs in <code class="font-mono text-electric">rounded-full bg-white object-contain p-1</code>. Never use <code class="font-mono">object-cover</code> or crop/stretch the 512×512 artwork.</span></li>
+          <li class="flex gap-2"><span class="text-electric font-extrabold">•</span><span><strong>Desktop Sizing:</strong> Central orbital core <code class="font-mono">112×112px</code> (<code class="font-mono">w-28 h-28</code>), Playtime core <code class="font-mono">128×128px</code> (<code class="font-mono">w-32 h-32</code>), Tip/Insight pill <code class="font-mono">44×44px</code>, Sensor satellites <code class="font-mono">44×44px</code>.</span></li>
+          <li class="flex gap-2"><span class="text-electric font-extrabold">•</span><span><strong>Mobile Sizing:</strong> Central orbital core <code class="font-mono">72–80px</code>, Tip/Insight pill <code class="font-mono">40×40px</code>, Sensor satellites <code class="font-mono">24–28px</code>.</span></li>
+        </ul>
+      </div>
+
+      <div class="rounded-[32px] bg-white border-2 border-lilac p-6 flex flex-col gap-3 shadow-sm">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-electric text-xl">devices</span>
+          <h2 class="font-display text-xl text-ink">Spacing, Positioning &amp; Responsive Usage</h2>
+        </div>
+        <ul class="text-xs font-semibold text-ink space-y-2.5">
+          <li class="flex gap-2"><span class="text-electric font-extrabold">•</span><span><strong>Orbital Geometry:</strong> Peekaboo sits at the center of concentric dashed/solid lilac rings with a dashed electric-violet beam pointing to the currently selected cardinal satellite.</span></li>
+          <li class="flex gap-2"><span class="text-electric font-extrabold">•</span><span><strong>Desktop (1280–1440px):</strong> Persistent <code class="font-mono">224px</code> left sidebar, top header with mood/range pills, central orbit stage, and right-hand telemetry inspector card.</span></li>
+          <li class="flex gap-2"><span class="text-electric font-extrabold">•</span><span><strong>Mobile (390px):</strong> Compact <code class="font-mono">328–336px</code> orbital stage stacked above a single focused telemetry card, anchored by a fixed 5-tab bottom navigation bar.</span></li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+
+</body></html>

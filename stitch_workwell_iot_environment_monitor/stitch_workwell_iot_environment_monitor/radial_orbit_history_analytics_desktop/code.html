@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History &amp; Analytics — WorkWell Radial Orbit</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#F6F3FF', ink: '#1E1633', muted: '#62587D', electric: '#6C3CE9',
+            lilac: '#D8CCFF', 'lilac-soft': '#ECE6FF', butter: '#FFE066', 'butter-ink': '#7A4E00',
+            coral: '#FF7B93', 'coral-soft': '#FFD6DE', 'coral-ink': '#941736',
+            mint: '#8EF0C4', 'mint-soft': '#D5FBE9', 'mint-ink': '#0B5D3B',
+            sky: '#99DDFF', 'sky-soft': '#DCF4FF', 'sky-ink': '#0A557A'
+          },
+          fontFamily: { display: ['Fredoka', 'system-ui', 'sans-serif'], sans: ['Nunito', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; overflow: hidden; white-space: nowrap; vertical-align: middle; }</style>
+</head>
+<body class="bg-canvas text-ink font-sans antialiased overflow-x-hidden">
+  <div class="min-h-[1024px] flex" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Left Navigation Rail -->
+    <aside class="w-56 shrink-0 sticky top-0 h-[1024px] bg-white/80 backdrop-blur border-r-2 border-lilac/60 px-6 py-7 flex flex-col justify-between z-20" data-stitch-vh="h-[1024px]===h-screen">
+      <div class="flex flex-col gap-9">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-electric p-0.5 shrink-0">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng" alt="Peekaboo" class="w-full h-full rounded-full object-contain bg-white p-0.5">
+          </div>
+          <div>
+            <span class="font-display text-xl text-ink block leading-none">WorkWell</span>
+            <span class="text-[11px] font-bold text-electric block mt-0.5">Radial Universe</span>
+          </div>
+        </div>
+        <nav aria-label="Primary" class="flex flex-col gap-2">
+          <a href="../orbit-bold-desktop/OrbitBoldDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">home</span> Home Orbit
+          </a>
+          <a href="../orbit-live-desktop/OrbitLiveDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">sensors</span> Live Stream
+          </a>
+          <a href="../orbit-playtime-desktop/OrbitPlaytimeDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">stadia_controller</span> Playtime
+          </a>
+          <a href="#" aria-current="page" class="flex items-center gap-3 px-4 py-2.5 rounded-full bg-electric text-white font-bold text-sm shadow-sm">
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings:&#39;FILL&#39; 1;">insights</span> History
+          </a>
+          <a href="../orbit-settings-desktop/OrbitSettingsDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">tune</span> Settings
+          </a>
+        </nav>
+      </div>
+
+      <div class="rounded-3xl bg-mint-soft border-2 border-mint px-3.5 py-2.5 flex items-center gap-2.5">
+        <span class="w-3 h-3 rounded-full bg-mint-ink animate-pulse shrink-0"></span>
+        <span class="font-mono text-xs font-semibold text-mint-ink">Archive Synced</span>
+      </div>
+    </aside>
+
+    <!-- Main History & Orbital Analytics -->
+    <main class="flex-1 min-w-0 px-10 py-7 max-w-[1200px] mx-auto flex flex-col gap-7">
+
+      <!-- Header with Daily / Weekly / Monthly Switcher -->
+      <header class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 class="font-display text-3xl text-ink tracking-tight">Orbital Comfort Story</h1>
+          <p class="text-sm text-muted font-semibold mt-0.5">Compare daily, weekly, and monthly balance across all four environmental rings</p>
+        </div>
+        <div class="inline-flex rounded-full bg-white border-2 border-lilac p-1.5">
+          <button type="button" onclick="setRange(&#39;daily&#39;)" id="r-daily" class="rounded-full px-4 py-1.5 bg-electric text-white text-xs font-bold transition-colors">Daily</button>
+          <button type="button" onclick="setRange(&#39;weekly&#39;)" id="r-weekly" class="rounded-full px-4 py-1.5 text-muted text-xs font-bold transition-colors">Weekly</button>
+          <button type="button" onclick="setRange(&#39;monthly&#39;)" id="r-monthly" class="rounded-full px-4 py-1.5 text-muted text-xs font-bold transition-colors">Monthly</button>
+        </div>
+      </header>
+
+      <!-- Main Creative Analytics Composition -->
+      <div class="grid grid-cols-12 gap-8 items-center">
+
+        <!-- Left (5 cols): Concentric Orbital Ring Breakdown -->
+        <section class="col-span-5 rounded-[40px] bg-white border-2 border-lilac p-6 flex flex-col items-center gap-5 shadow-[0_14px_34px_rgba(108,60,233,0.08)]">
+          <div class="w-full flex items-center justify-between">
+            <span class="font-display text-lg text-ink">Sensor Ring Balance</span>
+            <span id="ring-badge" class="rounded-full bg-mint-soft text-mint-ink px-3 py-0.5 text-xs font-extrabold">94% Avg</span>
+          </div>
+
+          <div class="relative w-72 h-72 flex items-center justify-center">
+            <svg viewBox="0 0 280 280" class="w-full h-full -rotate-90">
+              <!-- Outer: Temp (Butter/Amber) -->
+              <circle cx="140" cy="140" r="124" fill="none" stroke="#FFF4C2" stroke-width="14"></circle>
+              <circle id="arc-temp" cx="140" cy="140" r="124" fill="none" stroke="#F59E0B" stroke-width="14" stroke-linecap="round" stroke-dasharray="779" stroke-dashoffset="62"></circle>
+              <!-- 2nd: Light (Sky) -->
+              <circle cx="140" cy="140" r="102" fill="none" stroke="#DCF4FF" stroke-width="14"></circle>
+              <circle id="arc-light" cx="140" cy="140" r="102" fill="none" stroke="#0284C7" stroke-width="14" stroke-linecap="round" stroke-dasharray="641" stroke-dashoffset="70"></circle>
+              <!-- 3rd: Humidity (Mint) -->
+              <circle cx="140" cy="140" r="80" fill="none" stroke="#D5FBE9" stroke-width="14"></circle>
+              <circle id="arc-hum" cx="140" cy="140" r="80" fill="none" stroke="#059669" stroke-width="14" stroke-linecap="round" stroke-dasharray="502" stroke-dashoffset="35"></circle>
+              <!-- Inner: Sound (Coral) -->
+              <circle cx="140" cy="140" r="58" fill="none" stroke="#FFD6DE" stroke-width="14"></circle>
+              <circle id="arc-sound" cx="140" cy="140" r="58" fill="none" stroke="#E11D48" stroke-width="14" stroke-linecap="round" stroke-dasharray="364" stroke-dashoffset="40"></circle>
+            </svg>
+            <div class="absolute flex flex-col items-center text-center">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng" alt="Peekaboo" class="w-16 h-16 rounded-full object-contain bg-white p-0.5 mb-1">
+              <span id="ring-score" class="font-display text-2xl font-bold text-electric leading-none">94%</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2.5 w-full text-xs font-bold">
+            <div class="rounded-full bg-butter/80 px-3.5 py-2 flex items-center justify-between"><span class="text-butter-ink">Temp</span><span id="leg-temp">92%</span></div>
+            <div class="rounded-full bg-sky/75 px-3.5 py-2 flex items-center justify-between"><span class="text-sky-ink">Light</span><span id="leg-light">89%</span></div>
+            <div class="rounded-full bg-mint/75 px-3.5 py-2 flex items-center justify-between"><span class="text-mint-ink">Humid</span><span id="leg-hum">95%</span></div>
+            <div class="rounded-full bg-coral-soft px-3.5 py-2 flex items-center justify-between"><span class="text-coral-ink">Sound</span><span id="leg-sound">91%</span></div>
+          </div>
+        </section>
+
+        <!-- Right (7 cols): Interactive Comfort Flow Wave + Slot Breakdown -->
+        <section class="col-span-7 flex flex-col gap-5">
+          <div class="rounded-[40px] bg-white border-2 border-lilac p-6 flex flex-col gap-4 shadow-[0_14px_34px_rgba(108,60,233,0.08)]">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 id="flow-title" class="font-display text-2xl text-ink">Today’s Comfort Flow</h2>
+                <p class="text-xs font-semibold text-muted">Click any orbital node on the curve to inspect its readings</p>
+              </div>
+              <span id="slot-pill" class="rounded-full bg-butter text-butter-ink px-3.5 py-1 font-mono text-xs font-bold">10:00 · 96%</span>
+            </div>
+
+            <svg viewBox="0 0 540 165" class="w-full h-44 overflow-visible" aria-label="Comfort flow curve">
+              <defs>
+                <linearGradient id="histGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#6C3CE9" stop-opacity="0.28"></stop>
+                  <stop offset="100%" stop-color="#D5FBE9" stop-opacity="0.04"></stop>
+                </linearGradient>
+              </defs>
+              <path id="h-area" d fill="url(#histGrad)"></path>
+              <path id="h-line" d fill="none" stroke="#6C3CE9" stroke-width="4" stroke-linecap="round"></path>
+              <g id="h-dots"></g>
+            </svg>
+
+            <div id="slot-buttons" class="flex items-center justify-between gap-2"></div>
+          </div>
+
+          <!-- Selected Slot 4-Sensor Strip + Peekaboo Insight -->
+          <div class="grid grid-cols-4 gap-3">
+            <div class="rounded-[26px] bg-butter/85 p-3.5 flex items-center gap-2.5">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrBWWUghiNXtMwwQrHednJEO_MqUWBWwyOIIhTSSKyxqzRqLAhcfDmS8wJAo5BS9KBQwXAMxs_XjPO1RfF4-PPnjcL5DMuf5hdugmnutRkKrqD_W0lr1AbB3VvT4MtuQp33kBsrF8bDDsR8zmhSNHZneC2AVFM3oJ2A3Jjz_4zKvZp5u1avyaf-FQDnMMkjimbtiB7WfnwJxYc_BsfVQ80kWJNW0ly40h8C6x7iBTL6LiNHVWtb2pkA" alt="Temp" class="w-9 h-9 rounded-full object-cover bg-white shrink-0">
+              <div><span class="text-[10px] font-bold text-butter-ink block">Temp</span><span id="s-temp" class="font-display text-lg text-ink">23.1°C</span></div>
+            </div>
+            <div class="rounded-[26px] bg-sky/85 p-3.5 flex items-center gap-2.5">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrBE_W9uuh1tDbE34Nu9CJ2Py_W5ARlmX1hu2FQs301eN7cTHyN7h8f3zmSRzV5fjtN0NISg7R_hbKERWs4n-6tQx7bfvvKOTG82aXMJAKwVsWvPjHMl9-V2SxpblCkPaAuVXmNTBLU2xyeDjtq6gLoIOjZCOxwFss4nPQvT-GGcr50v59v_Kp8aAyod3TnYLeyFZrUPakXYWhhNp98E-8KE4njARZoDRytYGgqYcrXKStHlh5TSuGAx" alt="Light" class="w-9 h-9 rounded-full object-cover bg-white shrink-0">
+              <div><span class="text-[10px] font-bold text-sky-ink block">Light</span><span id="s-light" class="font-display text-lg text-ink">440 lx</span></div>
+            </div>
+            <div class="rounded-[26px] bg-mint/85 p-3.5 flex items-center gap-2.5">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrDct13ao3u4V3ZunI3-Z7FDlxlIOmIr8ESlah-7Wd6cdC44aEqb5ujcffPqVBHVhnTFs4u-UqWM8eK0WbymW6VLBFHrCiU1GbgHlZz7yHWhxdYKtV7hX5CBfeM5Iou3zs33jBIoed1a-_c9NDUE_1bfITfGr9gssgWsTgbTS7lVM6KytCEQUzzwXwhFo4jO-G4QChXUY4wb9j7kD5kgE9YxT0DDUe1nPSEfOQdYrXZNNy_GNTT0BJPCJmT4F9Qt-LU" alt="Humid" class="w-9 h-9 rounded-full object-cover bg-white shrink-0">
+              <div><span class="text-[10px] font-bold text-mint-ink block">Humid</span><span id="s-hum" class="font-display text-lg text-ink">47%</span></div>
+            </div>
+            <div class="rounded-[26px] bg-coral-soft p-3.5 flex items-center gap-2.5">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrCyBSkHZJ1WonMB5wWYgXLNq1FLG2aqmXeN5TGuK-QIPmYebfX7ZM3YmHWtXPmt1X7_kaEtsEA1G_XEDgqqS7otrOBRO4ulXfzbXfUUStAAdVsGe4IL2k07mvlIL1Y0e584IBsVsf5YSL48zJkQK6uB-F8u7CZF3ofSH9_8w7iuG7qc6ny1jFn2OK7l9QgX7LVuXAm9UA8hTedfWEmYiY7YvqPp0ouloLeSIq7GsgbIV1NqEU4Mu0UF90EiLIY" alt="Sound" class="w-9 h-9 rounded-full object-cover bg-white shrink-0">
+              <div><span class="text-[10px] font-bold text-coral-ink block">Sound</span><span id="s-sound" class="font-display text-lg text-ink">39 dBA</span></div>
+            </div>
+          </div>
+
+          <div class="rounded-full bg-electric text-white px-5 py-3.5 flex items-center gap-3.5 shadow-[0_12px_26px_rgba(108,60,233,0.24)]">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCdOdKVyPWlLa0mLD9qDwaoBXzzmdsU_1LkhESSe62zNjRmBha41xVOdaBwLajdlKI_e-NWZDaAz1rWXzRd-npq6oBsR7ZjnYDjq4UBPeJgfpBGm3yBEsZ1lk-ao6NRqrYHNPbAWv0L7yS6Xmkt4C_39Im-E2w3OkN-r0Ebxa30LXCuDNANHN-eajBgLKTSx5pvmqK8t0UAXG7L4eV7GQ_bpIjdWPLslNbVnr7fnYFxlDlHRPzBaqDQ3qA" alt="Peekaboo" class="w-10 h-10 rounded-full object-contain bg-white p-0.5 shrink-0">
+            <p id="h-insight" class="text-xs font-bold leading-snug">Morning focus peak (96%) happened between 10:00 and 11:30 with 39 dBA quietness.</p>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const DATASETS = {
+      daily: {
+        title: 'Today’s Comfort Flow', avg: '94%', rings: [92, 89, 95, 91],
+        insight: 'Morning focus peak (96%) happened between 10:00 and 11:30 with 39 dBA quietness.',
+        slots: [
+          { label: '08:00', score: 91, temp: '22.4°C', light: '380 lx', hum: '46%', sound: '38 dBA' },
+          { label: '10:00', score: 96, temp: '23.1°C', light: '440 lx', hum: '47%', sound: '39 dBA' },
+          { label: '12:00', score: 92, temp: '24.2°C', light: '490 lx', hum: '49%', sound: '45 dBA' },
+          { label: '15:00', score: 85, temp: '25.8°C', light: '460 lx', hum: '51%', sound: '48 dBA' },
+          { label: '17:00', score: 93, temp: '23.6°C', light: '350 lx', hum: '48%', sound: '41 dBA' }
+        ]
+      },
+      weekly: {
+        title: '7-Day Comfort Rhythm', avg: '91%', rings: [90, 88, 93, 87],
+        insight: 'Tuesday and Friday hit 95% comfort with steady 435 lx daylight.',
+        slots: [
+          { label: 'Mon', score: 90, temp: '23.4°C', light: '410 lx', hum: '48%', sound: '43 dBA' },
+          { label: 'Tue', score: 95, temp: '22.9°C', light: '435 lx', hum: '46%', sound: '39 dBA' },
+          { label: 'Wed', score: 91, temp: '23.8°C', light: '420 lx', hum: '49%', sound: '42 dBA' },
+          { label: 'Thu', score: 84, temp: '25.1°C', light: '390 lx', hum: '53%', sound: '51 dBA' },
+          { label: 'Fri', score: 95, temp: '23.0°C', light: '445 lx', hum: '47%', sound: '40 dBA' }
+        ]
+      },
+      monthly: {
+        title: 'Monthly Comfort Arc', avg: '92%', rings: [93, 91, 94, 89],
+        insight: 'Your workspace comfort improved +4% in Week 4 after adjusting afternoon blinds.',
+        slots: [
+          { label: 'Wk 1', score: 88, temp: '24.1°C', light: '400 lx', hum: '50%', sound: '44 dBA' },
+          { label: 'Wk 2', score: 91, temp: '23.6°C', light: '425 lx', hum: '48%', sound: '42 dBA' },
+          { label: 'Wk 3', score: 93, temp: '23.2°C', light: '440 lx', hum: '47%', sound: '40 dBA' },
+          { label: 'Wk 4', score: 95, temp: '22.9°C', light: '450 lx', hum: '46%', sound: '39 dBA' }
+        ]
+      }
+    };
+
+    let currentRange = 'daily';
+    let idx = 1;
+
+    function setRange(r) {
+      currentRange = r;
+      idx = 1;
+      ['daily', 'weekly', 'monthly'].forEach(k => {
+        document.getElementById('r-' + k).className = k === r
+          ? 'rounded-full px-4 py-1.5 bg-electric text-white text-xs font-bold transition-colors'
+          : 'rounded-full px-4 py-1.5 text-muted text-xs font-bold transition-colors';
+      });
+      render();
+    }
+
+    function pick(i) { idx = i; render(); }
+
+    function render() {
+      const d = DATASETS[currentRange];
+      document.getElementById('flow-title').textContent = d.title;
+      document.getElementById('ring-badge').textContent = d.avg + ' Avg';
+      document.getElementById('ring-score').textContent = d.avg;
+      document.getElementById('h-insight').textContent = d.insight;
+
+      const [t, l, h, s] = d.rings;
+      document.getElementById('leg-temp').textContent = t + '%';
+      document.getElementById('leg-light').textContent = l + '%';
+      document.getElementById('leg-hum').textContent = h + '%';
+      document.getElementById('leg-sound').textContent = s + '%';
+      document.getElementById('arc-temp').setAttribute('stroke-dashoffset', Math.round(779 * (1 - t / 100)));
+      document.getElementById('arc-light').setAttribute('stroke-dashoffset', Math.round(641 * (1 - l / 100)));
+      document.getElementById('arc-hum').setAttribute('stroke-dashoffset', Math.round(502 * (1 - h / 100)));
+      document.getElementById('arc-sound').setAttribute('stroke-dashoffset', Math.round(364 * (1 - s / 100)));
+
+      const slot = d.slots[idx];
+      document.getElementById('slot-pill').textContent = `${slot.label} · ${slot.score}%`;
+      document.getElementById('s-temp').textContent = slot.temp;
+      document.getElementById('s-light').textContent = slot.light;
+      document.getElementById('s-hum').textContent = slot.hum;
+      document.getElementById('s-sound').textContent = slot.sound;
+
+      document.getElementById('slot-buttons').innerHTML = d.slots.map((sl, i) => `
+        <button type="button" onclick="pick(${i})" class="flex-1 py-1.5 rounded-full text-xs font-bold transition-colors ${i === idx ? 'bg-electric text-white' : 'bg-lilac-soft text-muted hover:text-ink'}">${sl.label}</button>
+      `).join('');
+
+      const W = 540, H = 155, padX = 28, padY = 20;
+      const pts = d.slots.map((sl, i) => {
+        const x = Math.round(padX + (i / (d.slots.length - 1)) * (W - padX * 2));
+        const y = Math.round(H - padY - ((sl.score - 75) / 25) * (H - padY * 2));
+        return [x, y];
+      });
+      let p = `M ${pts[0][0]} ${pts[0][1]}`;
+      for (let i = 1; i < pts.length; i++) {
+        const cx = (pts[i - 1][0] + pts[i][0]) / 2;
+        p += ` C ${cx} ${pts[i - 1][1]}, ${cx} ${pts[i][1]}, ${pts[i][0]} ${pts[i][1]}`;
+      }
+      document.getElementById('h-line').setAttribute('d', p);
+      document.getElementById('h-area').setAttribute('d', `${p} L ${pts[pts.length - 1][0]} ${H} L ${pts[0][0]} ${H} Z`);
+      document.getElementById('h-dots').innerHTML = pts.map(([x, y], i) => `
+        <circle cx="${x}" cy="${y}" r="${i === idx ? 7.5 : 5}" fill="${i === idx ? '#6C3CE9' : '#FFFFFF'}" stroke="#6C3CE9" stroke-width="3" style="cursor:pointer" onclick="pick(${i})" />
+      `).join('');
+    }
+
+    render();
+  </script>
+
+
+</body></html>

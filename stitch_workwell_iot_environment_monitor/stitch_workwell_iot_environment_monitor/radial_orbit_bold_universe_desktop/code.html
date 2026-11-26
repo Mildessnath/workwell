@@ -1,0 +1,390 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radial Orbit: Bold Universe — WorkWell</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#F6F3FF',
+            ink: '#1E1633',
+            muted: '#62587D',
+            electric: '#6C3CE9',
+            lilac: '#D8CCFF',
+            'lilac-soft': '#ECE6FF',
+            butter: '#FFE066',
+            'butter-ink': '#7A4E00',
+            coral: '#FF7B93',
+            'coral-soft': '#FFD6DE',
+            'coral-ink': '#941736',
+            mint: '#8EF0C4',
+            'mint-soft': '#D5FBE9',
+            'mint-ink': '#0B5D3B',
+            sky: '#99DDFF',
+            'sky-soft': '#DCF4FF',
+            'sky-ink': '#0A557A'
+          },
+          fontFamily: {
+            display: ['Fredoka', 'system-ui', 'sans-serif'],
+            sans: ['Nunito', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; overflow: hidden; white-space: nowrap; vertical-align: middle; }
+    @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes spinRev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+    @keyframes floatBob { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-7px); } }
+    @keyframes eqBar { 0%, 100% { transform: scaleY(0.45); } 50% { transform: scaleY(1); } }
+    .ring-spin { animation: spinSlow 46s linear infinite; }
+    .ring-spin-rev { animation: spinRev 34s linear infinite; }
+    .sat-bob-1 { animation: floatBob 4.2s ease-in-out infinite; }
+    .sat-bob-2 { animation: floatBob 4.8s ease-in-out 0.6s infinite; }
+    .sat-bob-3 { animation: floatBob 4.5s ease-in-out 1.2s infinite; }
+    .sat-bob-4 { animation: floatBob 5.0s ease-in-out 0.3s infinite; }
+    .eq-1 { animation: eqBar 1.1s ease-in-out infinite; transform-origin: bottom; }
+    .eq-2 { animation: eqBar 0.85s ease-in-out 0.2s infinite; transform-origin: bottom; }
+    .eq-3 { animation: eqBar 1.25s ease-in-out 0.4s infinite; transform-origin: bottom; }
+    .universe-stage { transition: transform 0.18s ease-out; }
+  </style>
+</head>
+<body class="bg-canvas text-ink font-sans antialiased overflow-x-hidden">
+  <div class="min-h-[1024px] flex" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Left Navigation Rail -->
+    <aside class="w-56 shrink-0 sticky top-0 h-[1024px] bg-white/80 backdrop-blur border-r-2 border-lilac/60 px-6 py-7 flex flex-col justify-between z-20" data-stitch-vh="h-[1024px]===h-screen">
+      <div class="flex flex-col gap-9">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-electric p-0.5 shrink-0">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng" alt="Peekaboo" class="w-full h-full rounded-full object-contain bg-white p-0.5">
+          </div>
+          <div>
+            <span class="font-display text-xl text-ink block leading-none">WorkWell</span>
+            <span class="text-[11px] font-bold text-electric block mt-0.5">Radial Universe</span>
+          </div>
+        </div>
+        <nav aria-label="Primary" class="flex flex-col gap-2">
+          <a href="#" aria-current="page" class="flex items-center gap-3 px-4 py-2.5 rounded-full bg-electric text-white font-bold text-sm shadow-sm">
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings:&#39;FILL&#39; 1;">home</span> Home Orbit
+          </a>
+          <a href="../orbit-live-desktop/OrbitLiveDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">sensors</span> Live Stream
+          </a>
+          <a href="../orbit-playtime-desktop/OrbitPlaytimeDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">stadia_controller</span> Playtime
+          </a>
+          <a href="../orbit-history-desktop/OrbitHistoryDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">insights</span> History
+          </a>
+          <a href="../orbit-settings-desktop/OrbitSettingsDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">tune</span> Settings
+          </a>
+        </nav>
+      </div>
+
+      <div class="rounded-3xl bg-mint-soft border-2 border-mint px-3.5 py-2.5 flex items-center gap-2.5">
+        <span id="led-dot" class="w-3 h-3 rounded-full bg-mint-ink animate-pulse shrink-0"></span>
+        <span id="led-label" class="font-mono text-xs font-semibold text-mint-ink">ESP32 · Calm LED</span>
+      </div>
+    </aside>
+
+    <!-- Main Bold Radial Universe -->
+    <main class="flex-1 min-w-0 px-10 py-7 max-w-[1200px] mx-auto flex flex-col justify-between gap-4">
+
+      <!-- Top Header & Interactive Mood Switcher -->
+      <header class="flex flex-wrap items-center justify-between gap-4 z-20">
+        <div>
+          <div class="flex items-center gap-3">
+            <h1 class="font-display text-3xl text-ink tracking-tight">Peekaboo’s Comfort Universe</h1>
+            <span class="rounded-full bg-butter text-butter-ink px-3 py-0.5 font-mono text-xs font-bold">Demo · 4 Sensors</span>
+          </div>
+          <p class="text-sm text-muted font-semibold mt-0.5">Select any orbiting satellite to lock onto its orbital path and inspect telemetry</p>
+        </div>
+
+        <div class="flex items-center gap-1.5 bg-white border-2 border-lilac p-1.5 rounded-full">
+          <button type="button" onclick="setMood(&#39;optimal&#39;)" id="m-optimal" class="rounded-full px-3.5 py-1.5 bg-electric text-white text-xs font-bold transition-colors">Happy</button>
+          <button type="button" onclick="setMood(&#39;warm&#39;)" id="m-warm" class="rounded-full px-3.5 py-1.5 text-muted hover:text-ink text-xs font-bold transition-colors">Encourage</button>
+          <button type="button" onclick="setMood(&#39;dim&#39;)" id="m-dim" class="rounded-full px-3.5 py-1.5 text-muted hover:text-ink text-xs font-bold transition-colors">Sleepy</button>
+          <button type="button" onclick="setMood(&#39;loud&#39;)" id="m-loud" class="rounded-full px-3.5 py-1.5 text-muted hover:text-ink text-xs font-bold transition-colors">Curious</button>
+          <button type="button" onclick="setMood(&#39;streak&#39;)" id="m-streak" class="rounded-full px-3.5 py-1.5 text-muted hover:text-ink text-xs font-bold transition-colors">Celebrate</button>
+        </div>
+      </header>
+
+      <!-- Dominant Radial Orbit Composition + Focused Telemetry Dock -->
+      <section class="grid grid-cols-12 gap-8 items-center flex-1 py-2">
+
+        <!-- Left/Center (8 cols): Oversized Dimensional Orbital Universe -->
+        <div id="universe-wrap" class="col-span-8 relative flex items-center justify-center min-h-[600px]">
+
+          <!-- Ambient Oversized Lilac Aura Disc -->
+          <div class="absolute w-[560px] h-[560px] rounded-full bg-lilac-soft/90 pointer-events-none"></div>
+
+          <!-- Outer Rotating Constellation Ring -->
+          <div class="universe-stage relative w-[520px] h-[520px] flex items-center justify-center">
+            <svg viewBox="0 0 520 520" class="absolute inset-0 w-full h-full pointer-events-none">
+              <!-- Outer Dashed Orbit -->
+              <circle cx="260" cy="260" r="246" fill="none" stroke="#6C3CE9" stroke-width="2" stroke-dasharray="8 10" opacity="0.28" class="origin-center ring-spin"></circle>
+              <!-- Mid Bold Lilac Ring -->
+              <circle cx="260" cy="260" r="192" fill="none" stroke="#B79EFF" stroke-width="3" opacity="0.55"></circle>
+              <!-- Inner Rotating Accent Arc -->
+              <circle cx="260" cy="260" r="154" fill="none" stroke="#6C3CE9" stroke-width="2.5" stroke-dasharray="48 24 14 24" opacity="0.4" class="origin-center ring-spin-rev"></circle>
+              <!-- Active Connection Beam from Center to Selected Satellite -->
+              <line id="orbit-beam" x1="260" y1="260" x2="260" y2="54" stroke="#6C3CE9" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.85"></line>
+              <circle id="beam-anchor" cx="260" cy="54" r="7" fill="#6C3CE9"></circle>
+            </svg>
+
+            <!-- DOMINANT CENTRAL PEEKABOO PLANET -->
+            <div class="relative w-64 h-64 rounded-full bg-white border-[5px] border-electric/20 flex flex-col items-center justify-center text-center p-5 z-10 shadow-[0_20px_50px_rgba(108,60,233,0.18)]">
+              <!-- SVG Comfort Progress Arc -->
+              <svg viewBox="0 0 260 260" class="absolute -inset-2 w-[calc(100%+16px)] h-[calc(100%+16px)] -rotate-90 pointer-events-none">
+                <circle cx="130" cy="130" r="122" fill="none" stroke="#ECE6FF" stroke-width="10"></circle>
+                <circle id="comfort-arc" cx="130" cy="130" r="122" fill="none" stroke="#6C3CE9" stroke-width="10" stroke-linecap="round" stroke-dasharray="766" stroke-dashoffset="61"></circle>
+              </svg>
+
+              <span id="center-badge" class="rounded-full bg-mint-soft text-mint-ink px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wide mb-1.5">Optimal Orbit</span>
+              <div class="w-28 h-28 rounded-full bg-white p-1 mb-1.5">
+                <img id="mascot-img" src="https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng" alt="Peekaboo" class="w-full h-full rounded-full object-contain">
+              </div>
+              <div class="flex items-baseline gap-1.5">
+                <span id="hero-score" class="font-display text-4xl font-bold text-electric tabular-nums leading-none">92%</span>
+                <span class="text-xs font-bold text-muted">Comfort</span>
+              </div>
+            </div>
+
+            <!-- SATELLITE 1 (Top-Left / North): TEMPERATURE — Solar Scallop Badge -->
+            <button type="button" onclick="selectSensor(&#39;temp&#39;)" id="sat-temp" class="sat-bob-1 absolute -top-5 left-1/2 -translate-x-1/2 bg-butter border-[3px] border-electric rounded-[28px] px-5 py-3 flex items-center gap-3 z-20 shadow-[0_12px_28px_rgba(245,158,11,0.28)] scale-105 transition-all cursor-pointer">
+              <div class="w-11 h-11 rounded-2xl bg-white p-0.5 rotate-6 shrink-0">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrBWWUghiNXtMwwQrHednJEO_MqUWBWwyOIIhTSSKyxqzRqLAhcfDmS8wJAo5BS9KBQwXAMxs_XjPO1RfF4-PPnjcL5DMuf5hdugmnutRkKrqD_W0lr1AbB3VvT4MtuQp33kBsrF8bDDsR8zmhSNHZneC2AVFM3oJ2A3Jjz_4zKvZp5u1avyaf-FQDnMMkjimbtiB7WfnwJxYc_BsfVQ80kWJNW0ly40h8C6x7iBTL6LiNHVWtb2pkA" alt="Temperature" class="w-full h-full rounded-xl object-cover">
+              </div>
+              <div class="text-left">
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-butter-ink block">Temp · DHT22</span>
+                <span id="val-temp" class="font-display text-2xl font-bold text-ink tabular-nums leading-none">23.4°C</span>
+              </div>
+            </button>
+
+            <!-- SATELLITE 2 (Right / East): AMBIENT LIGHT — Electric Sky Diamond-Pod -->
+            <button type="button" onclick="selectSensor(&#39;light&#39;)" id="sat-light" class="sat-bob-2 absolute top-1/2 -right-12 -translate-y-1/2 bg-sky border-[3px] border-white rounded-[26px] rounded-tr-md px-5 py-3 flex items-center gap-3 z-20 shadow-[0_12px_28px_rgba(10,85,122,0.18)] hover:scale-105 transition-all cursor-pointer">
+              <div class="w-11 h-11 rounded-full bg-white p-0.5 shrink-0">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrBE_W9uuh1tDbE34Nu9CJ2Py_W5ARlmX1hu2FQs301eN7cTHyN7h8f3zmSRzV5fjtN0NISg7R_hbKERWs4n-6tQx7bfvvKOTG82aXMJAKwVsWvPjHMl9-V2SxpblCkPaAuVXmNTBLU2xyeDjtq6gLoIOjZCOxwFss4nPQvT-GGcr50v59v_Kp8aAyod3TnYLeyFZrUPakXYWhhNp98E-8KE4njARZoDRytYGgqYcrXKStHlh5TSuGAx" alt="Light" class="w-full h-full rounded-full object-cover">
+              </div>
+              <div class="text-left">
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-sky-ink block">Light · BH1750</span>
+                <span id="val-light" class="font-display text-2xl font-bold text-ink tabular-nums leading-none">435 lx</span>
+              </div>
+            </button>
+
+            <!-- SATELLITE 3 (Bottom / South): HUMIDITY — Organic Mint Droplet Squircle -->
+            <button type="button" onclick="selectSensor(&#39;hum&#39;)" id="sat-hum" class="sat-bob-3 absolute -bottom-5 left-1/2 -translate-x-1/2 bg-mint border-[3px] border-white rounded-full rounded-tl-lg px-5 py-3 flex items-center gap-3 z-20 shadow-[0_12px_28px_rgba(11,93,59,0.18)] hover:scale-105 transition-all cursor-pointer">
+              <div class="w-11 h-11 rounded-full bg-white p-0.5 shrink-0">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrDct13ao3u4V3ZunI3-Z7FDlxlIOmIr8ESlah-7Wd6cdC44aEqb5ujcffPqVBHVhnTFs4u-UqWM8eK0WbymW6VLBFHrCiU1GbgHlZz7yHWhxdYKtV7hX5CBfeM5Iou3zs33jBIoed1a-_c9NDUE_1bfITfGr9gssgWsTgbTS7lVM6KytCEQUzzwXwhFo4jO-G4QChXUY4wb9j7kD5kgE9YxT0DDUe1nPSEfOQdYrXZNNy_GNTT0BJPCJmT4F9Qt-LU" alt="Humidity" class="w-full h-full rounded-full object-cover">
+              </div>
+              <div class="text-left">
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-mint-ink block">Humidity</span>
+                <span id="val-hum" class="font-display text-2xl font-bold text-ink tabular-nums leading-none">48%</span>
+              </div>
+            </button>
+
+            <!-- SATELLITE 4 (Left / West): ACOUSTICS — Coral Soundwave Capsule -->
+            <button type="button" onclick="selectSensor(&#39;sound&#39;)" id="sat-sound" class="sat-bob-4 absolute top-1/2 -left-14 -translate-y-1/2 bg-coral-soft border-[3px] border-white rounded-full px-5 py-3 flex items-center gap-3 z-20 shadow-[0_12px_28px_rgba(148,23,54,0.16)] hover:scale-105 transition-all cursor-pointer">
+              <div class="w-11 h-11 rounded-full bg-white p-0.5 shrink-0">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrCyBSkHZJ1WonMB5wWYgXLNq1FLG2aqmXeN5TGuK-QIPmYebfX7ZM3YmHWtXPmt1X7_kaEtsEA1G_XEDgqqS7otrOBRO4ulXfzbXfUUStAAdVsGe4IL2k07mvlIL1Y0e584IBsVsf5YSL48zJkQK6uB-F8u7CZF3ofSH9_8w7iuG7qc6ny1jFn2OK7l9QgX7LVuXAm9UA8hTedfWEmYiY7YvqPp0ouloLeSIq7GsgbIV1NqEU4Mu0UF90EiLIY" alt="Sound" class="w-full h-full rounded-full object-cover">
+              </div>
+              <div class="text-left">
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-coral-ink block">Acoustics</span>
+                <div class="flex items-center gap-2">
+                  <span id="val-sound" class="font-display text-2xl font-bold text-ink tabular-nums leading-none">42 dBA</span>
+                  <span class="inline-flex items-end gap-0.5 h-4">
+                    <span class="w-1 h-2.5 bg-coral rounded-full eq-1"></span>
+                    <span class="w-1 h-4 bg-coral rounded-full eq-2"></span>
+                    <span class="w-1 h-3 bg-coral rounded-full eq-3"></span>
+                  </span>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right (4 cols): Focused Orbital Inspector (Clean, Single Focal Panel) -->
+        <aside class="col-span-4 flex flex-col gap-5 z-20">
+          <!-- Peekaboo Reaction Bubble -->
+          <div class="rounded-[34px] bg-white border-2 border-lilac p-6 flex flex-col gap-4 shadow-[0_14px_34px_rgba(108,60,233,0.08)]">
+            <div class="flex items-center justify-between">
+              <span id="insp-chip" class="rounded-full bg-butter text-butter-ink px-3 py-1 text-xs font-extrabold uppercase tracking-wide">Temperature Focus</span>
+              <span id="insp-status" class="rounded-full bg-mint-soft text-mint-ink px-3 py-1 font-mono text-xs font-bold">Within Band</span>
+            </div>
+
+            <div>
+              <div class="flex items-baseline gap-2">
+                <span id="insp-reading" class="font-display text-5xl font-bold text-ink tabular-nums">23.4°C</span>
+                <span id="insp-delta" class="text-xs font-bold text-mint-ink">Target 21–26°C</span>
+              </div>
+              <p id="insp-quote" class="text-sm font-bold text-ink mt-3 leading-relaxed bg-lilac-soft/75 rounded-2xl p-3.5">
+                “Cozy thermal balance! Peekaboo is right at peak comfort.”
+              </p>
+            </div>
+
+            <!-- Mini Trend Bar Strip -->
+            <div class="pt-1">
+              <div class="flex items-center justify-between text-[11px] font-bold text-muted mb-2">
+                <span>Last 60 Minutes</span>
+                <span id="insp-hw" class="font-mono text-electric">DHT22 · GPIO4</span>
+              </div>
+              <div id="insp-bars" class="grid grid-cols-6 gap-2 items-end h-14 bg-canvas rounded-2xl p-2.5">
+                <div class="bg-lilac rounded-full h-7"></div>
+                <div class="bg-lilac rounded-full h-8"></div>
+                <div class="bg-lilac rounded-full h-6"></div>
+                <div class="bg-lilac rounded-full h-9"></div>
+                <div class="bg-lilac rounded-full h-8"></div>
+                <div class="bg-electric rounded-full h-10"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Peekaboo Actionable Tip Pill -->
+          <div class="rounded-[30px] bg-electric text-white p-5 flex items-center gap-4 shadow-[0_14px_30px_rgba(108,60,233,0.28)]">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAZMegn7O6aCJstm-NGjyFoFR56oPLOKNPp3G5YaSvVx8pSpAORcdg14GePlEKiZoXh724lyAQ87eDqA8HmwYksuTltpmGZn23qRQcCdonYmjzlUpoC_VlfStzS_EOJD5K8ZIBvEnkRPaPlFupyeu4Qqe46On0ROoj1WGyMk_ixWenL3tmifOz15tt8-9AvJH4jPzlMT33pyXrHdQtQfTrXoZ9hThiJMIYf7iTEKTnJ3piKTKxf2kZpYQ" alt="Tip" class="w-12 h-12 rounded-full object-contain bg-white p-0.5 shrink-0">
+            <div class="min-w-0">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-butter block">Peekaboo’s Note</span>
+              <p id="insp-tip" class="text-xs font-bold leading-snug mt-0.5">435 lx daylight is balanced — angle blinds slightly around 2 PM.</p>
+            </div>
+          </div>
+        </aside>
+
+      </section>
+    </main>
+  </div>
+
+  <script data-stitch-original-script="aba8a6f893e6072d===../../uploads/a7c9af00-3c36-41bb-a7dc-c158ac9a9837-59a4f7.png|||61b3c1bf337dd8bb===../../uploads/65ea6de9-2ee9-47ac-bfd5-0a02930ff8c7-61db22.png|||311a929320a2de8f===../../uploads/79ed381d-52f4-40b9-a45b-8b6831f801b5-6c99de.png|||bb85c4b54c8d6b6d===../../uploads/d8681424-c7b9-4070-94d5-6ea55b7b0d30-d4ef4a.png|||cf279d70763fc661===../../uploads/c6130dfb-3f11-4ab7-aa1f-a4ebeeddc463-0ab66b.png">
+    const MOODS = {
+      optimal: {
+        score: 92, badge: 'Happy · Optimal', badgeCls: 'bg-mint-soft text-mint-ink',
+        led: 'ESP32 · Calm LED', ledDot: 'bg-mint-ink', mascot: 'https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng',
+        vals: { temp: '23.4°C', light: '435 lx', hum: '48%', sound: '42 dBA' },
+        tip: '435 lx daylight is balanced — angle blinds slightly around 2 PM.'
+      },
+      warm: {
+        score: 74, badge: 'Encourage · Warm', badgeCls: 'bg-coral-soft text-coral-ink',
+        led: 'ESP32 · Amber LED', ledDot: 'bg-coral-ink', mascot: 'https://lh3.googleusercontent.com/aida/ALJJyrAZMegn7O6aCJstm-NGjyFoFR56oPLOKNPp3G5YaSvVx8pSpAORcdg14GePlEKiZoXh724lyAQ87eDqA8HmwYksuTltpmGZn23qRQcCdonYmjzlUpoC_VlfStzS_EOJD5K8ZIBvEnkRPaPlFupyeu4Qqe46On0ROoj1WGyMk_ixWenL3tmifOz15tt8-9AvJH4jPzlMT33pyXrHdQtQfTrXoZ9hThiJMIYf7iTEKTnJ3piKTKxf2kZpYQ',
+        vals: { temp: '27.6°C', light: '510 lx', hum: '54%', sound: '44 dBA' },
+        tip: 'Temperature climbed to 27.6°C — open a window or turn on a desk fan.'
+      },
+      dim: {
+        score: 79, badge: 'Sleepy · Quiet', badgeCls: 'bg-sky-soft text-sky-ink',
+        led: 'ESP32 · Soft Blue', ledDot: 'bg-sky-ink', mascot: 'https://lh3.googleusercontent.com/aida/ALJJyrDgkfgzeI1melaNvhl8WpWGz3x7TE6EZuPnBNJLnk5aD3jaBuwbUptz1YKxhLHOdVvsSEM8CdSmJEflkUoVWK2C0_JVsRG6uvgtA8bf557P7zyYH6lK151PDBBo_WHpfFbzQdx5-O-t-qZOpsgKs5JYxfuYPsXXk2dzrhmwncngPNsFfxx_2Ze1xqJOXu7pLKBjXNUmhft1CVGGfpyjxb3mcksSGFa40NIPcsoKKGXGQ1UEJIHvZZQs8gg',
+        vals: { temp: '22.8°C', light: '185 lx', hum: '47%', sound: '38 dBA' },
+        tip: 'Ambient light dropped to 185 lx — switch on your warm desk lamp.'
+      },
+      loud: {
+        score: 71, badge: 'Curious · Shift', badgeCls: 'bg-coral-soft text-coral-ink',
+        led: 'ESP32 · Coral Pulse', ledDot: 'bg-coral-ink', mascot: 'https://lh3.googleusercontent.com/aida/ALJJyrAnfDijCc4deybZQ-vcQCXWnFLlPnOzS5x0T_Bu9shHZErCddgpQjquR-mUPVOVcl7s0pzde-5VGApwdIMa8GGZBY0e-lRwa4SErnAIFB3L6jA0y4T7rj3yELgtmZtvGt2QU7lIVde75wDVNG2Fec76xG_LNjHWzP9fzhRxSDiwCXc1VlTnuCbLTBejq7Vz2W-wdKxzWSKHb6ewbthAk7YpC9r8zKxgg1KqNaIXKvz1jh4dIkhislFrlHc',
+        vals: { temp: '23.5°C', light: '430 lx', hum: '49%', sound: '64 dBA' },
+        tip: 'Acoustics reached 64 dBA — try noise-canceling headphones for focus.'
+      },
+      streak: {
+        score: 97, badge: 'Celebrate · Milestone', badgeCls: 'bg-butter text-butter-ink',
+        led: 'ESP32 · Gold Glow', ledDot: 'bg-butter-ink', mascot: 'https://lh3.googleusercontent.com/aida/ALJJyrCdOdKVyPWlLa0mLD9qDwaoBXzzmdsU_1LkhESSe62zNjRmBha41xVOdaBwLajdlKI_e-NWZDaAz1rWXzRd-npq6oBsR7ZjnYDjq4UBPeJgfpBGm3yBEsZ1lk-ao6NRqrYHNPbAWv0L7yS6Xmkt4C_39Im-E2w3OkN-r0Ebxa30LXCuDNANHN-eajBgLKTSx5pvmqK8t0UAXG7L4eV7GQ_bpIjdWPLslNbVnr7fnYFxlDlHRPzBaqDQ3qA',
+        vals: { temp: '23.0°C', light: '450 lx', hum: '46%', sound: '37 dBA' },
+        tip: 'Great environmental balance today — enjoy your cozy workspace!'
+      }
+    };
+
+    const SENSORS = {
+      temp:  { chip: 'Temperature Focus', target: 'Target 21–26°C', hw: 'DHT22 · GPIO4', chipCls: 'bg-butter text-butter-ink', beam: [260, 54], quote: '“Cozy thermal balance! Peekaboo is right at peak comfort.”' },
+      light: { chip: 'Daylight Focus', target: 'Target 300–550 lx', hw: 'BH1750 · I2C', chipCls: 'bg-sky text-sky-ink', beam: [464, 260], quote: '“Crisp natural daylight keeps eye strain away.”' },
+      hum:   { chip: 'Humidity Focus', target: 'Target 40–60%', hw: 'DHT22 · GPIO4', chipCls: 'bg-mint text-mint-ink', beam: [260, 466], quote: '“Fresh 48% humidity — breathable and gentle.”' },
+      sound: { chip: 'Acoustics Focus', target: 'Target ≤ 55 dBA', hw: 'MAX4466 · ADC', chipCls: 'bg-coral-soft text-coral-ink', beam: [56, 260], quote: '“Soft 42 dBA hum — great for deep focus!”' }
+    };
+
+    let currentMood = 'optimal';
+    let activeSensor = 'temp';
+
+    function setMood(m) {
+      currentMood = m;
+      ['optimal', 'warm', 'dim', 'loud', 'streak'].forEach(k => {
+        const b = document.getElementById('m-' + k);
+        b.className = k === m
+          ? 'rounded-full px-3.5 py-1.5 bg-electric text-white text-xs font-bold transition-colors'
+          : 'rounded-full px-3.5 py-1.5 text-muted hover:text-ink text-xs font-bold transition-colors';
+      });
+      render();
+    }
+
+    function selectSensor(s) {
+      activeSensor = s;
+      ['temp', 'light', 'hum', 'sound'].forEach(k => {
+        const el = document.getElementById('sat-' + k);
+        if (k === s) {
+          el.classList.add('border-electric', 'scale-105');
+          el.classList.remove('border-white');
+        } else {
+          el.classList.remove('border-electric', 'scale-105');
+          el.classList.add('border-white');
+        }
+      });
+      render();
+    }
+
+    function render() {
+      const m = MOODS[currentMood];
+      const s = SENSORS[activeSensor];
+
+      document.getElementById('hero-score').textContent = m.score + '%';
+      const offset = Math.round(766 * (1 - m.score / 100));
+      document.getElementById('comfort-arc').setAttribute('stroke-dashoffset', offset);
+      document.getElementById('mascot-img').src = m.mascot;
+
+      const cb = document.getElementById('center-badge');
+      cb.textContent = m.badge;
+      cb.className = `rounded-full px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wide mb-1.5 ${m.badgeCls}`;
+
+      document.getElementById('led-label').textContent = m.led;
+      document.getElementById('led-dot').className = `w-3 h-3 rounded-full animate-pulse shrink-0 ${m.ledDot}`;
+
+      document.getElementById('val-temp').textContent = m.vals.temp;
+      document.getElementById('val-light').textContent = m.vals.light;
+      document.getElementById('val-hum').textContent = m.vals.hum;
+      document.getElementById('val-sound').textContent = m.vals.sound;
+
+      const chip = document.getElementById('insp-chip');
+      chip.textContent = s.chip;
+      chip.className = `rounded-full px-3 py-1 text-xs font-extrabold uppercase tracking-wide ${s.chipCls}`;
+
+      document.getElementById('insp-reading').textContent = m.vals[activeSensor];
+      document.getElementById('insp-delta').textContent = s.target;
+      document.getElementById('insp-hw').textContent = s.hw;
+      document.getElementById('insp-quote').textContent = s.quote;
+      document.getElementById('insp-tip').textContent = m.tip;
+
+      const beam = document.getElementById('orbit-beam');
+      beam.setAttribute('x2', s.beam[0]);
+      beam.setAttribute('y2', s.beam[1]);
+      const anchor = document.getElementById('beam-anchor');
+      anchor.setAttribute('cx', s.beam[0]);
+      anchor.setAttribute('cy', s.beam[1]);
+    }
+
+    // Subtle mouse parallax on orbital universe
+    const wrap = document.getElementById('universe-wrap');
+    const stage = wrap.querySelector('.universe-stage');
+    wrap.addEventListener('mousemove', (e) => {
+      const r = wrap.getBoundingClientRect();
+      const dx = ((e.clientX - r.left) / r.width - 0.5) * 14;
+      const dy = ((e.clientY - r.top) / r.height - 0.5) * 14;
+      stage.style.transform = `translate3d(${dx.toFixed(1)}px, ${dy.toFixed(1)}px, 0)`;
+    });
+    wrap.addEventListener('mouseleave', () => {
+      stage.style.transform = 'translate3d(0,0,0)';
+    });
+
+    render();
+  </script>
+
+
+</body></html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — WorkWell Radial Orbit (Mobile)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#F6F3FF', ink: '#1E1633', muted: '#62587D', electric: '#6C3CE9',
+            lilac: '#D8CCFF', 'lilac-soft': '#ECE6FF', butter: '#FFE066', 'butter-ink': '#7A4E00',
+            coral: '#FF7B93', 'coral-soft': '#FFD6DE', 'coral-ink': '#941736',
+            mint: '#8EF0C4', 'mint-soft': '#D5FBE9', 'mint-ink': '#0B5D3B',
+            sky: '#99DDFF', 'sky-soft': '#DCF4FF', 'sky-ink': '#0A557A'
+          },
+          fontFamily: { display: ['Fredoka', 'system-ui', 'sans-serif'], sans: ['Nunito', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; overflow: hidden; white-space: nowrap; vertical-align: middle; }
+    input[type="range"] { accent-color: #6C3CE9; }
+  </style>
+</head>
+<body class="bg-canvas text-ink font-sans antialiased pb-24 overflow-x-hidden">
+  <div class="min-h-[884px] max-w-md mx-auto flex flex-col" data-stitch-vh="min-h-[884px]===min-h-screen">
+
+    <header class="px-5 pt-4 pb-2 flex items-center justify-between gap-2">
+      <div>
+        <h1 class="font-display text-xl text-ink leading-none">Orbit Tuning</h1>
+        <span class="text-[11px] font-semibold text-muted">Syncs live with Peekaboo &amp; RGB LED</span>
+      </div>
+      <span class="inline-flex items-center gap-1.5 rounded-full bg-mint-soft border border-mint px-3 py-1 text-[11px] font-extrabold text-mint-ink">
+        <span class="w-2 h-2 rounded-full bg-mint-ink animate-pulse"></span> ESP32 Online
+      </span>
+    </header>
+
+    <main class="px-4 py-2 flex flex-col gap-3.5">
+
+      <section class="rounded-[30px] bg-electric text-white p-4 flex items-center gap-3 shadow-md">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrAZMegn7O6aCJstm-NGjyFoFR56oPLOKNPp3G5YaSvVx8pSpAORcdg14GePlEKiZoXh724lyAQ87eDqA8HmwYksuTltpmGZn23qRQcCdonYmjzlUpoC_VlfStzS_EOJD5K8ZIBvEnkRPaPlFupyeu4Qqe46On0ROoj1WGyMk_ixWenL3tmifOz15tt8-9AvJH4jPzlMT33pyXrHdQtQfTrXoZ9hThiJMIYf7iTEKTnJ3piKTKxf2kZpYQ" alt="Peekaboo" class="w-12 h-12 rounded-full object-contain bg-white p-0.5 shrink-0">
+        <p class="text-xs font-bold leading-snug flex-1">Adjust your comfort bands below. Live Orbit reacts immediately when a sensor drifts.</p>
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrDknCwHzNw_lV2RxQVv3zaYtTEdKR5skrgJ4RPJkg2aMDin0nqEqfkqgU0x2K-KFS0meQW4Dow9N-J_5_fzAthz4YiX0zIkz56XT_uiLS96wuQ0CBDHLIYvJTiZVIBaQz0img2kRy3cIlc8qq1X0wILtIWWOD3EA_kVUrCAf6UVXOaJ9SVjJd17ljad4PlA_7IQDfL7sNYq8Fu26OUhkf3MkJID-KNUSg8eyJVyBvtPyBaroMtDLYFzw89mRA" alt="Gear" class="w-9 h-9 rounded-full object-cover bg-white p-0.5 shrink-0">
+      </section>
+
+      <!-- 4 Expressive Pastel Threshold Sliders -->
+      <section class="flex flex-col gap-2.5">
+        <div class="rounded-[26px] bg-butter/85 border-2 border-white p-3.5 flex flex-col gap-1.5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2"><img src="https://lh3.googleusercontent.com/aida/ALJJyrBWWUghiNXtMwwQrHednJEO_MqUWBWwyOIIhTSSKyxqzRqLAhcfDmS8wJAo5BS9KBQwXAMxs_XjPO1RfF4-PPnjcL5DMuf5hdugmnutRkKrqD_W0lr1AbB3VvT4MtuQp33kBsrF8bDDsR8zmhSNHZneC2AVFM3oJ2A3Jjz_4zKvZp5u1avyaf-FQDnMMkjimbtiB7WfnwJxYc_BsfVQ80kWJNW0ly40h8C6x7iBTL6LiNHVWtb2pkA" alt="Temp" class="w-7 h-7 rounded-lg object-cover bg-white"><span class="text-xs font-extrabold text-ink">Max Temperature</span></div>
+            <span id="val-temp" class="font-display text-base font-bold text-ink tabular-nums">26.5°C</span>
+          </div>
+          <input id="rng-temp" type="range" min="22" max="30" step="0.5" value="26.5" oninput="saveCfg()" class="w-full cursor-pointer">
+        </div>
+
+        <div class="rounded-[26px] bg-sky/80 border-2 border-white p-3.5 flex flex-col gap-1.5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2"><img src="https://lh3.googleusercontent.com/aida/ALJJyrBE_W9uuh1tDbE34Nu9CJ2Py_W5ARlmX1hu2FQs301eN7cTHyN7h8f3zmSRzV5fjtN0NISg7R_hbKERWs4n-6tQx7bfvvKOTG82aXMJAKwVsWvPjHMl9-V2SxpblCkPaAuVXmNTBLU2xyeDjtq6gLoIOjZCOxwFss4nPQvT-GGcr50v59v_Kp8aAyod3TnYLeyFZrUPakXYWhhNp98E-8KE4njARZoDRytYGgqYcrXKStHlh5TSuGAx" alt="Light" class="w-7 h-7 rounded-full object-cover bg-white"><span class="text-xs font-extrabold text-ink">Min Ambient Light</span></div>
+            <span id="val-lux" class="font-display text-base font-bold text-ink tabular-nums">300 lx</span>
+          </div>
+          <input id="rng-lux" type="range" min="150" max="500" step="10" value="300" oninput="saveCfg()" class="w-full cursor-pointer">
+        </div>
+
+        <div class="rounded-[26px] bg-mint/80 border-2 border-white p-3.5 flex flex-col gap-1.5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2"><img src="https://lh3.googleusercontent.com/aida/ALJJyrDct13ao3u4V3ZunI3-Z7FDlxlIOmIr8ESlah-7Wd6cdC44aEqb5ujcffPqVBHVhnTFs4u-UqWM8eK0WbymW6VLBFHrCiU1GbgHlZz7yHWhxdYKtV7hX5CBfeM5Iou3zs33jBIoed1a-_c9NDUE_1bfITfGr9gssgWsTgbTS7lVM6KytCEQUzzwXwhFo4jO-G4QChXUY4wb9j7kD5kgE9YxT0DDUe1nPSEfOQdYrXZNNy_GNTT0BJPCJmT4F9Qt-LU" alt="Humidity" class="w-7 h-7 rounded-full object-cover bg-white"><span class="text-xs font-extrabold text-ink">Max Humidity</span></div>
+            <span id="val-hum" class="font-display text-base font-bold text-ink tabular-nums">60%</span>
+          </div>
+          <input id="rng-hum" type="range" min="45" max="75" step="1" value="60" oninput="saveCfg()" class="w-full cursor-pointer">
+        </div>
+
+        <div class="rounded-[26px] bg-coral-soft border-2 border-white p-3.5 flex flex-col gap-1.5 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2"><img src="https://lh3.googleusercontent.com/aida/ALJJyrCyBSkHZJ1WonMB5wWYgXLNq1FLG2aqmXeN5TGuK-QIPmYebfX7ZM3YmHWtXPmt1X7_kaEtsEA1G_XEDgqqS7otrOBRO4ulXfzbXfUUStAAdVsGe4IL2k07mvlIL1Y0e584IBsVsf5YSL48zJkQK6uB-F8u7CZF3ofSH9_8w7iuG7qc6ny1jFn2OK7l9QgX7LVuXAm9UA8hTedfWEmYiY7YvqPp0ouloLeSIq7GsgbIV1NqEU4Mu0UF90EiLIY" alt="Noise" class="w-7 h-7 rounded-full object-cover bg-white"><span class="text-xs font-extrabold text-ink">Max Noise Level</span></div>
+            <span id="val-noise" class="font-display text-base font-bold text-ink tabular-nums">58 dBA</span>
+          </div>
+          <input id="rng-noise" type="range" min="45" max="75" step="1" value="58" oninput="saveCfg()" class="w-full cursor-pointer">
+        </div>
+      </section>
+
+      <!-- Device & LED Preferences -->
+      <section class="rounded-[28px] bg-white border-2 border-lilac p-4 flex flex-col gap-2.5">
+        <label class="flex items-center justify-between cursor-pointer">
+          <span class="text-xs font-bold text-ink">RGB LED Alert Pulse</span>
+          <input type="checkbox" checked class="rounded-full text-electric focus:ring-electric h-5 w-5">
+        </label>
+        <label class="flex items-center justify-between cursor-pointer">
+          <span class="text-xs font-bold text-ink">Night Mode Auto-Dim (20:00+)</span>
+          <input type="checkbox" checked class="rounded-full text-electric focus:ring-electric h-5 w-5">
+        </label>
+        <div class="pt-1 flex items-center justify-between">
+          <span id="save-toast" class="text-[11px] font-mono text-mint-ink font-bold">Synced with Live Orbit</span>
+          <button type="button" onclick="resetCfg()" class="rounded-full bg-lilac-soft text-electric px-3.5 py-1 text-[11px] font-bold">Reset Defaults</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav aria-label="Primary" class="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur border-t-2 border-lilac/60 px-2 py-2">
+      <div class="grid grid-cols-5 gap-1 max-w-md mx-auto">
+        <a href="../orbit-bold-mobile/OrbitBoldMobile.html" class="flex flex-col items-center py-1 rounded-full text-muted">
+          <span class="material-symbols-outlined text-lg">home</span>
+          <span class="text-[10px] font-semibold">Orbit</span>
+        </a>
+        <a href="../orbit-live-mobile/OrbitLiveMobile.html" class="flex flex-col items-center py-1 rounded-full text-muted">
+          <span class="material-symbols-outlined text-lg">sensors</span>
+          <span class="text-[10px] font-semibold">Live</span>
+        </a>
+        <a href="../orbit-playtime-mobile/OrbitPlaytimeMobile.html" class="flex flex-col items-center py-1 rounded-full text-muted">
+          <span class="material-symbols-outlined text-lg">stadia_controller</span>
+          <span class="text-[10px] font-semibold">Play</span>
+        </a>
+        <a href="../orbit-history-mobile/OrbitHistoryMobile.html" class="flex flex-col items-center py-1 rounded-full text-muted">
+          <span class="material-symbols-outlined text-lg">insights</span>
+          <span class="text-[10px] font-semibold">History</span>
+        </a>
+        <a href="#" aria-current="page" class="flex flex-col items-center py-1 rounded-full bg-electric text-white">
+          <span class="material-symbols-outlined text-lg" style="font-variation-settings:&#39;FILL&#39; 1;">tune</span>
+          <span class="text-[10px] font-bold">Settings</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <script>
+    const DEFAULT_CFG = { maxTemp: 26.5, maxHum: 60, minLux: 300, maxNoise: 58 };
+    function loadCfg() {
+      let cfg = DEFAULT_CFG;
+      try {
+        const raw = localStorage.getItem('workwell_settings_v1');
+        if (raw) cfg = { ...DEFAULT_CFG, ...JSON.parse(raw) };
+      } catch {}
+      document.getElementById('rng-temp').value = cfg.maxTemp;
+      document.getElementById('rng-lux').value = cfg.minLux;
+      document.getElementById('rng-hum').value = cfg.maxHum;
+      document.getElementById('rng-noise').value = cfg.maxNoise;
+      updateLabels(cfg);
+    }
+    function updateLabels(cfg) {
+      document.getElementById('val-temp').textContent = Number(cfg.maxTemp).toFixed(1) + '°C';
+      document.getElementById('val-lux').textContent = cfg.minLux + ' lx';
+      document.getElementById('val-hum').textContent = cfg.maxHum + '%';
+      document.getElementById('val-noise').textContent = cfg.maxNoise + ' dBA';
+    }
+    function saveCfg() {
+      const cfg = {
+        maxTemp: parseFloat(document.getElementById('rng-temp').value),
+        minLux: parseInt(document.getElementById('rng-lux').value, 10),
+        maxHum: parseInt(document.getElementById('rng-hum').value, 10),
+        maxNoise: parseInt(document.getElementById('rng-noise').value, 10)
+      };
+      updateLabels(cfg);
+      try { localStorage.setItem('workwell_settings_v1', JSON.stringify(cfg)); } catch {}
+      const t = document.getElementById('save-toast');
+      t.textContent = 'Saved ✓';
+      setTimeout(() => { t.textContent = 'Synced with Live Orbit'; }, 1200);
+    }
+    function resetCfg() {
+      try { localStorage.setItem('workwell_settings_v1', JSON.stringify(DEFAULT_CFG)); } catch {}
+      loadCfg();
+    }
+    loadCfg();
+  </script>
+
+
+</body></html>

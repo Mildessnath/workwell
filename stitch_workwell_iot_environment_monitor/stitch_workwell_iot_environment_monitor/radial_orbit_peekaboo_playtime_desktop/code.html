@@ -1,0 +1,389 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peekaboo Playtime — WorkWell Radial Orbit</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#F6F3FF', ink: '#1E1633', muted: '#62587D', electric: '#6C3CE9',
+            lilac: '#D8CCFF', 'lilac-soft': '#ECE6FF', butter: '#FFE066', 'butter-ink': '#7A4E00',
+            coral: '#FF7B93', 'coral-soft': '#FFD6DE', 'coral-ink': '#941736',
+            mint: '#8EF0C4', 'mint-soft': '#D5FBE9', 'mint-ink': '#0B5D3B',
+            sky: '#99DDFF', 'sky-soft': '#DCF4FF', 'sky-ink': '#0A557A'
+          },
+          fontFamily: { display: ['Fredoka', 'system-ui', 'sans-serif'], sans: ['Nunito', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; overflow: hidden; white-space: nowrap; vertical-align: middle; }
+    @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes floatUp { 0% { opacity: 1; transform: translateY(0) scale(0.8); } 100% { opacity: 0; transform: translateY(-48px) scale(1.25); } }
+    @keyframes bounceSoft { 0%, 100% { transform: scale(1); } 45% { transform: scale(1.07); } }
+    .ring-spin { animation: spinSlow 44s linear infinite; }
+    .heart-pop { animation: floatUp 0.9s ease-out forwards; }
+    .pet-bounce { animation: bounceSoft 0.4s ease-out; }
+  </style>
+</head>
+<body class="bg-canvas text-ink font-sans antialiased overflow-x-hidden">
+  <div class="min-h-[1024px] flex" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Left Navigation Rail -->
+    <aside class="w-56 shrink-0 sticky top-0 h-[1024px] bg-white/80 backdrop-blur border-r-2 border-lilac/60 px-6 py-7 flex flex-col justify-between z-20" data-stitch-vh="h-[1024px]===h-screen">
+      <div class="flex flex-col gap-9">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-electric p-0.5 shrink-0">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng" alt="Peekaboo" class="w-full h-full rounded-full object-contain bg-white p-0.5">
+          </div>
+          <div>
+            <span class="font-display text-xl text-ink block leading-none">WorkWell</span>
+            <span class="text-[11px] font-bold text-electric block mt-0.5">Radial Universe</span>
+          </div>
+        </div>
+        <nav aria-label="Primary" class="flex flex-col gap-2">
+          <a href="../orbit-bold-desktop/OrbitBoldDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">home</span> Home Orbit
+          </a>
+          <a href="../orbit-live-desktop/OrbitLiveDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">sensors</span> Live Stream
+          </a>
+          <a href="#" aria-current="page" class="flex items-center gap-3 px-4 py-2.5 rounded-full bg-electric text-white font-bold text-sm shadow-sm">
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings:&#39;FILL&#39; 1;">stadia_controller</span> Playtime
+          </a>
+          <a href="../orbit-history-desktop/OrbitHistoryDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">insights</span> History
+          </a>
+          <a href="../orbit-settings-desktop/OrbitSettingsDesktop.html" class="flex items-center gap-3 px-4 py-2.5 rounded-full text-muted hover:bg-lilac-soft hover:text-ink text-sm font-bold transition-colors">
+            <span class="material-symbols-outlined text-lg">tune</span> Settings
+          </a>
+        </nav>
+      </div>
+
+      <div class="rounded-3xl bg-lilac-soft border-2 border-lilac px-3.5 py-2.5 flex items-center gap-2.5">
+        <span class="material-symbols-outlined text-electric text-base" style="font-variation-settings:&#39;FILL&#39; 1;">favorite</span>
+        <span class="font-mono text-xs font-semibold text-electric">No-Decay Companion</span>
+      </div>
+    </aside>
+
+    <!-- Main Playtime Canvas -->
+    <main class="flex-1 min-w-0 px-10 py-7 max-w-[1200px] mx-auto flex flex-col gap-6">
+
+      <!-- Header + Progression Pill -->
+      <header class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-3">
+            <h1 class="font-display text-3xl text-ink tracking-tight">Take Care of Peekaboo</h1>
+            <span class="rounded-full bg-mint-soft text-mint-ink px-3 py-0.5 font-mono text-xs font-bold">Relaxed · Optional</span>
+          </div>
+          <p class="text-sm text-muted font-semibold mt-0.5">Peekaboo never loses happiness while you’re away — drop in anytime to pet, feed, or play</p>
+        </div>
+
+        <!-- Progression Bar -->
+        <div class="rounded-full bg-white border-2 border-lilac px-5 py-2.5 flex items-center gap-4 shadow-sm">
+          <div>
+            <span id="lvl-label" class="font-display text-sm text-electric block leading-none">Lv. 4 · Cozy Sprout</span>
+            <span id="xp-label" class="font-mono text-[11px] text-muted">140 / 200 Affection XP</span>
+          </div>
+          <div class="w-32 h-3 rounded-full bg-lilac-soft overflow-hidden">
+            <div id="xp-bar" class="h-full rounded-full bg-electric transition-all duration-300" style="width: 70%;"></div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Split: Left Interactive Peekaboo Habitat | Right Activity Tabs (Feed / Play / Habitat / Log) -->
+      <div class="grid grid-cols-12 gap-8 items-center flex-1">
+
+        <!-- Left (6 cols): Interactive Peekaboo Orbital Habitat -->
+        <section class="col-span-6 relative flex flex-col items-center justify-center min-h-[540px]">
+          <div class="absolute w-[460px] h-[460px] rounded-full bg-lilac-soft/90 pointer-events-none"></div>
+
+          <div class="relative w-[430px] h-[430px] flex items-center justify-center">
+            <svg viewBox="0 0 430 430" class="absolute inset-0 w-full h-full pointer-events-none">
+              <circle cx="215" cy="215" r="202" fill="none" stroke="#6C3CE9" stroke-width="2" stroke-dasharray="7 9" opacity="0.28" class="origin-center ring-spin"></circle>
+              <circle cx="215" cy="215" r="150" fill="none" stroke="#B79EFF" stroke-width="2.5" opacity="0.55"></circle>
+            </svg>
+
+            <!-- Equipped Habitat Decorations (Orbital Slots) -->
+            <div id="deco-sprout" class="hidden absolute -top-3 left-1/2 -translate-x-1/2 bg-mint border-2 border-white rounded-full px-4 py-1.5 flex items-center gap-2 z-20 shadow-md">
+              <span class="material-symbols-outlined text-mint-ink text-lg">potted_plant</span>
+              <span class="text-xs font-extrabold text-mint-ink">Lavender Sprout</span>
+            </div>
+            <div id="deco-lamp" class="hidden absolute top-1/2 -right-8 -translate-y-1/2 bg-butter border-2 border-white rounded-full px-4 py-1.5 flex items-center gap-2 z-20 shadow-md">
+              <span class="material-symbols-outlined text-butter-ink text-lg">wb_twilight</span>
+              <span class="text-xs font-extrabold text-butter-ink">Sunbeam Lamp</span>
+            </div>
+            <div id="deco-cushion" class="hidden absolute -bottom-3 left-1/2 -translate-x-1/2 bg-coral-soft border-2 border-white rounded-full px-4 py-1.5 flex items-center gap-2 z-20 shadow-md">
+              <span class="material-symbols-outlined text-coral-ink text-lg">chair</span>
+              <span class="text-xs font-extrabold text-coral-ink">Cloud Cushion</span>
+            </div>
+            <div id="deco-star" class="hidden absolute top-1/2 -left-8 -translate-y-1/2 bg-sky border-2 border-white rounded-full px-4 py-1.5 flex items-center gap-2 z-20 shadow-md">
+              <span class="material-symbols-outlined text-sky-ink text-lg">auto_awesome</span>
+              <span class="text-xs font-extrabold text-sky-ink">Star Garland</span>
+            </div>
+
+            <!-- Interactive Starlight Mini-Game Targets Layer -->
+            <div id="game-layer" class="hidden absolute inset-0 z-30 pointer-events-auto"></div>
+
+            <!-- Central Pettable Peekaboo -->
+            <button type="button" onclick="petPeekaboo(event)" id="pet-target" class="relative w-64 h-64 rounded-full bg-white border-[5px] border-electric/25 flex flex-col items-center justify-center text-center p-5 z-10 shadow-[0_20px_50px_rgba(108,60,233,0.18)] hover:scale-[1.03] active:scale-95 transition-transform cursor-pointer">
+              <div id="hearts-layer" class="absolute inset-0 pointer-events-none overflow-visible"></div>
+              <span id="companion-state" class="rounded-full bg-butter text-butter-ink px-3 py-0.5 text-[11px] font-extrabold uppercase mb-2">Happy · Tap to Pet</span>
+              <img id="play-mascot" src="https://lh3.googleusercontent.com/aida/ALJJyrCmgjxHmlwFQ1TgPiHybEwnh-tXDwAzzDC1G9HH3x8b3vpJZsdH1Lk-TO8vjQSQDLjxikZELXFnfz3C9JH2iamei8pIbtgtsoPzld_zKDrmGexYfFHK7y-G-eFrAqTPlutn7QdOwvp8NNMsuwITwXCaHq5m3UWXQJV11XaGNJ5sKlAMNCle1Sis4G54YhUvYnXPRuiZkr4Jo2-ERU_lsV4cfPZrVGdH3NOKPlfhlUv3YEgzQxH8NEyrng" alt="Peekaboo" class="w-32 h-32 rounded-full object-contain bg-white p-1 mb-2">
+              <p id="play-speech" class="text-xs font-bold text-muted leading-snug">“Hey friend! Tap me for a cozy high-five.”</p>
+            </button>
+          </div>
+        </section>
+
+        <!-- Right (6 cols): Activity Dock (Feed / Play / Habitat / Log) -->
+        <section class="col-span-6 rounded-[38px] bg-white border-2 border-lilac p-6 flex flex-col gap-5 shadow-[0_14px_34px_rgba(108,60,233,0.08)]">
+          <!-- Tab Switcher -->
+          <div class="grid grid-cols-4 gap-1.5 bg-lilac-soft/75 p-1.5 rounded-full">
+            <button type="button" onclick="setTab(&#39;feed&#39;)" id="tab-feed" class="rounded-full py-2 bg-electric text-white text-xs font-bold transition-colors">Feed</button>
+            <button type="button" onclick="setTab(&#39;play&#39;)" id="tab-play" class="rounded-full py-2 text-muted hover:text-ink text-xs font-bold transition-colors">Play Game</button>
+            <button type="button" onclick="setTab(&#39;habitat&#39;)" id="tab-habitat" class="rounded-full py-2 text-muted hover:text-ink text-xs font-bold transition-colors">Habitat</button>
+            <button type="button" onclick="setTab(&#39;log&#39;)" id="tab-log" class="rounded-full py-2 text-muted hover:text-ink text-xs font-bold transition-colors">History</button>
+          </div>
+
+          <!-- TAB 1: FEED -->
+          <div id="panel-feed" class="flex flex-col gap-3.5">
+            <div class="flex items-center justify-between">
+              <span class="font-display text-lg text-ink">Snack Pantry</span>
+              <span class="font-mono text-xs text-muted">Tap a treat to share (+15 XP)</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" onclick="feedTreat(&#39;Lavender Berry&#39;, &#39;a7c9af00-3c36-41bb-a7dc-c158ac9a9837-59a4f7.png&#39;, &#39;“Mmm! Sweet lavender berries are my favorite!”&#39;)" class="rounded-[26px] bg-lilac-soft hover:bg-lilac/70 p-4 text-left flex items-center gap-3 transition-colors">
+                <span class="w-11 h-11 rounded-2xl bg-white flex items-center justify-center text-electric"><span class="material-symbols-outlined text-2xl">nutrition</span></span>
+                <div><span class="font-display text-base text-ink block">Lavender Berry</span><span class="text-[11px] font-bold text-electric">+15 Affection XP</span></div>
+              </button>
+              <button type="button" onclick="feedTreat(&#39;Honey Toast&#39;, &#39;c6130dfb-3f11-4ab7-aa1f-a4ebeeddc463-0ab66b.png&#39;, &#39;“Warm, golden, and crunchy — thank you!”&#39;)" class="rounded-[26px] bg-butter/85 hover:bg-butter p-4 text-left flex items-center gap-3 transition-colors">
+                <span class="w-11 h-11 rounded-2xl bg-white flex items-center justify-center text-butter-ink"><span class="material-symbols-outlined text-2xl">bakery_dining</span></span>
+                <div><span class="font-display text-base text-ink block">Honey Toast</span><span class="text-[11px] font-bold text-butter-ink">+15 Affection XP</span></div>
+              </button>
+              <button type="button" onclick="feedTreat(&#39;Mint Tea&#39;, &#39;65ea6de9-2ee9-47ac-bfd5-0a02930ff8c7-61db22.png&#39;, &#39;“So refreshing! Ready for a calm afternoon.”&#39;)" class="rounded-[26px] bg-mint-soft hover:bg-mint/75 p-4 text-left flex items-center gap-3 transition-colors">
+                <span class="w-11 h-11 rounded-2xl bg-white flex items-center justify-center text-mint-ink"><span class="material-symbols-outlined text-2xl">emoji_food_beverage</span></span>
+                <div><span class="font-display text-base text-ink block">Mint Tea</span><span class="text-[11px] font-bold text-mint-ink">+15 Affection XP</span></div>
+              </button>
+              <button type="button" onclick="feedTreat(&#39;Star Biscuit&#39;, &#39;d8681424-c7b9-4070-94d5-6ea55b7b0d30-d4ef4a.png&#39;, &#39;“Ooh, sparkly crunch! Where did you find this?”&#39;)" class="rounded-[26px] bg-sky-soft hover:bg-sky/75 p-4 text-left flex items-center gap-3 transition-colors">
+                <span class="w-11 h-11 rounded-2xl bg-white flex items-center justify-center text-sky-ink"><span class="material-symbols-outlined text-2xl">cookie</span></span>
+                <div><span class="font-display text-base text-ink block">Star Biscuit</span><span class="text-[11px] font-bold text-sky-ink">+15 Affection XP</span></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- TAB 2: PLAY TOGETHER (Lightweight JS Mini-Game) -->
+          <div id="panel-play" class="hidden flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="font-display text-lg text-ink block">Starlight Tap</span>
+                <span class="text-xs text-muted font-semibold">Tap floating stars around Peekaboo’s orbit for 15 seconds</span>
+              </div>
+              <span id="game-timer" class="rounded-full bg-butter text-butter-ink px-3 py-1 font-mono text-xs font-bold">15s</span>
+            </div>
+            <div class="rounded-[28px] bg-lilac-soft/75 p-5 flex items-center justify-between">
+              <div>
+                <span class="text-xs font-bold text-muted block">Session Stars</span>
+                <span id="game-score" class="font-display text-3xl text-electric">0</span>
+              </div>
+              <button type="button" onclick="startStarGame()" id="start-game-btn" class="rounded-full bg-electric text-white px-6 py-2.5 text-sm font-bold shadow-md hover:opacity-95">Start 15s Round</button>
+            </div>
+            <p class="text-xs text-muted font-semibold">Built with lightweight HTML/JS so it embeds cleanly inside Streamlit without heavy game engines.</p>
+          </div>
+
+          <!-- TAB 3: CUSTOMIZE HABITAT -->
+          <div id="panel-habitat" class="hidden flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <span class="font-display text-lg text-ink">Habitat Decorations</span>
+              <span class="font-mono text-xs text-muted">Toggle items in orbit</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" onclick="toggleDeco(&#39;sprout&#39;)" id="btn-deco-sprout" class="rounded-[24px] bg-mint-soft border-2 border-mint p-3.5 text-left flex items-center justify-between">
+                <span class="text-xs font-extrabold text-mint-ink">Lavender Sprout</span>
+                <span class="text-[11px] font-bold text-mint-ink">Equipped</span>
+              </button>
+              <button type="button" onclick="toggleDeco(&#39;lamp&#39;)" id="btn-deco-lamp" class="rounded-[24px] bg-canvas border-2 border-lilac p-3.5 text-left flex items-center justify-between">
+                <span class="text-xs font-extrabold text-ink">Sunbeam Lamp</span>
+                <span class="text-[11px] font-bold text-muted">Place</span>
+              </button>
+              <button type="button" onclick="toggleDeco(&#39;cushion&#39;)" id="btn-deco-cushion" class="rounded-[24px] bg-canvas border-2 border-lilac p-3.5 text-left flex items-center justify-between">
+                <span class="text-xs font-extrabold text-ink">Cloud Cushion</span>
+                <span class="text-[11px] font-bold text-muted">Place</span>
+              </button>
+              <button type="button" onclick="toggleDeco(&#39;star&#39;)" id="btn-deco-star" class="rounded-[24px] bg-canvas border-2 border-lilac p-3.5 text-left flex items-center justify-between">
+                <span class="text-xs font-extrabold text-ink">Star Garland</span>
+                <span class="text-[11px] font-bold text-muted">Place</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- TAB 4: INTERACTION HISTORY -->
+          <div id="panel-log" class="hidden flex flex-col gap-3">
+            <span class="font-display text-lg text-ink">Recent Moments</span>
+            <ul id="history-list" class="flex flex-col gap-2 text-xs font-semibold text-ink"></ul>
+          </div>
+
+          <!-- Companion State Preview Pills -->
+          <div class="pt-2 border-t border-lilac-soft flex flex-wrap items-center justify-between gap-2">
+            <span class="text-[11px] font-bold text-muted">Mood:</span>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button type="button" onclick="setCompanion(&#39;Happy&#39;, &#39;a7c9af00-3c36-41bb-a7dc-c158ac9a9837-59a4f7.png&#39;, &#39;“Feeling bright and cozy!”&#39;)" class="rounded-full bg-butter text-butter-ink px-2.5 py-1 text-[10px] font-bold">Happy</button>
+              <button type="button" onclick="setCompanion(&#39;Curious&#39;, &#39;d8681424-c7b9-4070-94d5-6ea55b7b0d30-d4ef4a.png&#39;, &#39;“Ooh, what are we exploring?”&#39;)" class="rounded-full bg-mint-soft text-mint-ink px-2.5 py-1 text-[10px] font-bold">Curious</button>
+              <button type="button" onclick="setCompanion(&#39;Sleepy&#39;, &#39;79ed381d-52f4-40b9-a45b-8b6831f801b5-6c99de.png&#39;, &#39;“Taking a gentle afternoon rest…”&#39;)" class="rounded-full bg-lilac-soft text-electric px-2.5 py-1 text-[10px] font-bold">Sleepy</button>
+              <button type="button" onclick="setCompanion(&#39;Encourage&#39;, &#39;65ea6de9-2ee9-47ac-bfd5-0a02930ff8c7-61db22.png&#39;, &#39;“You’ve got this — one step at a time!”&#39;)" class="rounded-full bg-sky-soft text-sky-ink px-2.5 py-1 text-[10px] font-bold">Encourage</button>
+              <button type="button" onclick="setCompanion(&#39;Celebrate&#39;, &#39;c6130dfb-3f11-4ab7-aa1f-a4ebeeddc463-0ab66b.png&#39;, &#39;“Woohoo! Milestone unlocked!”&#39;)" class="rounded-full bg-coral-soft text-coral-ink px-2.5 py-1 text-[10px] font-bold">Celebrate</button>
+              <button type="button" onclick="setCompanion(&#39;Neutral&#39;, &#39;89fee179-c336-41f1-a9e0-8c8814fcaa37-aac8b5.png&#39;, &#39;“Just hanging out quietly with you.”&#39;)" class="rounded-full bg-canvas border border-lilac text-muted px-2.5 py-1 text-[10px] font-bold">Neutral</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const DEFAULT_STATE = {
+      xp: 140, level: 4,
+      decos: { sprout: true, lamp: false, cushion: false, star: false },
+      log: ['Shared Lavender Berry (+15 XP)', 'Petted Peekaboo (+10 XP)', 'Placed Lavender Sprout in orbit']
+    };
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem('workwell_peekaboo_v1');
+        return raw ? { ...DEFAULT_STATE, ...JSON.parse(raw) } : DEFAULT_STATE;
+      } catch { return DEFAULT_STATE; }
+    }
+    let state = loadState();
+    function saveState() { try { localStorage.setItem('workwell_peekaboo_v1', JSON.stringify(state)); } catch {} }
+
+    function addXp(amount, entry) {
+      state.xp += amount;
+      while (state.xp >= 200) { state.xp -= 200; state.level += 1; }
+      if (entry) { state.log.unshift(entry); state.log = state.log.slice(0, 5); }
+      saveState();
+      renderProgress();
+    }
+
+    function renderProgress() {
+      document.getElementById('lvl-label').textContent = `Lv. ${state.level} · Cozy Sprout`;
+      document.getElementById('xp-label').textContent = `${state.xp} / 200 Affection XP`;
+      document.getElementById('xp-bar').style.width = `${Math.min(100, Math.round((state.xp / 200) * 100))}%`;
+      document.getElementById('history-list').innerHTML = state.log.map(item =>
+        `<li class="rounded-2xl bg-canvas px-3.5 py-2.5 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-electric"></span>${item}</li>`
+      ).join('');
+
+      Object.keys(state.decos).forEach(k => {
+        const on = state.decos[k];
+        document.getElementById('deco-' + k).classList.toggle('hidden', !on);
+        const btn = document.getElementById('btn-deco-' + k);
+        if (on) {
+          btn.className = 'rounded-[24px] bg-mint-soft border-2 border-mint p-3.5 text-left flex items-center justify-between';
+          btn.querySelector('span:last-child').textContent = 'Equipped';
+        } else {
+          btn.className = 'rounded-[24px] bg-canvas border-2 border-lilac p-3.5 text-left flex items-center justify-between';
+          btn.querySelector('span:last-child').textContent = 'Place';
+        }
+      });
+    }
+
+    function setTab(t) {
+      ['feed', 'play', 'habitat', 'log'].forEach(k => {
+        document.getElementById('panel-' + k).classList.toggle('hidden', k !== t);
+        document.getElementById('tab-' + k).className = k === t
+          ? 'rounded-full py-2 bg-electric text-white text-xs font-bold transition-colors'
+          : 'rounded-full py-2 text-muted hover:text-ink text-xs font-bold transition-colors';
+      });
+    }
+
+    function petPeekaboo() {
+      const target = document.getElementById('pet-target');
+      target.classList.remove('pet-bounce');
+      void target.offsetWidth;
+      target.classList.add('pet-bounce');
+
+      const hearts = document.getElementById('hearts-layer');
+      const h = document.createElement('span');
+      h.className = 'material-symbols-outlined text-coral text-2xl absolute heart-pop';
+      h.style.left = `${35 + Math.random() * 30}%`;
+      h.style.top = '28%';
+      h.style.fontVariationSettings = "'FILL' 1";
+      h.textContent = 'favorite';
+      hearts.appendChild(h);
+      setTimeout(() => h.remove(), 900);
+
+      setCompanion('Happy', 'a7c9af00-3c36-41bb-a7dc-c158ac9a9837-59a4f7.png', '“Hehe, that feels so cozy! +10 Affection XP”');
+      addXp(10, 'Petted Peekaboo (+10 XP)');
+    }
+
+    function feedTreat(name, img, quote) {
+      setCompanion('Celebrate', img, quote);
+      addXp(15, `Shared ${name} (+15 XP)`);
+    }
+
+    function toggleDeco(k) {
+      state.decos[k] = !state.decos[k];
+      saveState();
+      renderProgress();
+    }
+
+    function setCompanion(label, img, quote) {
+      document.getElementById('companion-state').textContent = label;
+      document.getElementById('play-mascot').src = `../../uploads/${img}`;
+      document.getElementById('play-speech').textContent = quote;
+    }
+
+    let gameTimer = null;
+    function startStarGame() {
+      if (gameTimer) return;
+      let secs = 15, score = 0;
+      const layer = document.getElementById('game-layer');
+      layer.classList.remove('hidden');
+      document.getElementById('game-score').textContent = '0';
+      document.getElementById('start-game-btn').textContent = 'Playing…';
+
+      const spawn = () => {
+        layer.innerHTML = '';
+        const star = document.createElement('button');
+        star.type = 'button';
+        star.className = 'absolute w-11 h-11 rounded-full bg-butter border-2 border-electric flex items-center justify-center shadow-lg hover:scale-110 transition-transform';
+        const angle = Math.random() * Math.PI * 2;
+        const r = 165;
+        star.style.left = `${215 + Math.cos(angle) * r - 22}px`;
+        star.style.top = `${215 + Math.sin(angle) * r - 22}px`;
+        star.innerHTML = '<span class="material-symbols-outlined text-butter-ink text-2xl" style="font-variation-settings:\'FILL\' 1;">star</span>';
+        star.onclick = () => {
+          score += 1;
+          document.getElementById('game-score').textContent = score;
+          spawn();
+        };
+        layer.appendChild(star);
+      };
+      spawn();
+
+      gameTimer = setInterval(() => {
+        secs -= 1;
+        document.getElementById('game-timer').textContent = `${secs}s`;
+        if (secs <= 0) {
+          clearInterval(gameTimer);
+          gameTimer = null;
+          layer.classList.add('hidden');
+          layer.innerHTML = '';
+          document.getElementById('game-timer').textContent = '15s';
+          document.getElementById('start-game-btn').textContent = 'Start 15s Round';
+          const earned = Math.max(10, score * 5);
+          setCompanion('Celebrate', 'c6130dfb-3f11-4ab7-aa1f-a4ebeeddc463-0ab66b.png', `“Caught ${score} stars together! +${earned} XP”`);
+          addXp(earned, `Starlight Tap: ${score} stars (+${earned} XP)`);
+        }
+      }, 1000);
+    }
+
+    renderProgress();
+  </script>
+
+
+</body></html>
