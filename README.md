@@ -5,6 +5,8 @@ An ESP32 measures temperature, humidity, ambient light and noise. The web app sh
 
 > All sensor readings in the app are currently **DEMO (simulated)** and labeled as such.
 
+**Live demo:** https://mildessnath.github.io/workwell/ (deployed automatically from `main` by GitHub Actions)
+
 ## Quick start
 
 Requirements: Node.js 18+ (tested on 22).
@@ -16,6 +18,8 @@ npm run dev          # open http://127.0.0.1:5173
 ```
 
 Production build: `npm run build` (output in `frontend/dist/`), preview with `npm run preview`.
+
+The app uses hash routes (`/#/live`, `/#/settings`, …) so links and refresh work on static hosting. For a build served from a sub-path, set `VITE_BASE`, e.g. `VITE_BASE=/workwell/ npm run build` (the Pages workflow does this).
 
 ## Pages
 | Route | Page | What you can do |

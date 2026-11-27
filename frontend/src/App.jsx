@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Sidebar from './components/Sidebar.jsx';
 import BottomNav from './components/BottomNav.jsx';
 import { SensorProvider } from './lib/sensorSource.jsx';
@@ -20,7 +20,8 @@ function TitleSync() {
 export default function App() {
   return (
     <SensorProvider>
-      <BrowserRouter>
+      {/* HashRouter: deep links and refresh work on static hosting (GitHub Pages) with no 404 */}
+      <HashRouter>
         <TitleSync />
         <a href="#content" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-electric focus:text-white focus:px-4 focus:py-2 focus:text-sm focus:font-bold">
           Skip to content
@@ -39,7 +40,7 @@ export default function App() {
           </div>
         </div>
         <BottomNav />
-      </BrowserRouter>
+      </HashRouter>
     </SensorProvider>
   );
 }

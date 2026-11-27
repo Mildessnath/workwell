@@ -5,7 +5,8 @@
  * Files in frontend/public/assets/ are served from the web root.
  */
 
-const PEEKABOO_DIR = '/assets/peekaboo';
+// BASE_URL is '/' locally and '/workwell/' on GitHub Pages.
+const PEEKABOO_DIR = `${import.meta.env.BASE_URL}assets/peekaboo`;
 
 /**
  * The six official Peekaboo expressions — 1080x1080 PNG, 1:1, opaque white bg.
